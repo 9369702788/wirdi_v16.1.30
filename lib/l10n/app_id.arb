@@ -1,0 +1,1140 @@
+{
+  "@@locale": "id",
+  "appTitle": "Wirdi",
+  "@appTitle": {
+    "description": "App name shown in title bar / task switcher"
+  },
+  "navHome": "Beranda",
+  "navQuran": "Al-Quran",
+  "navAzkar": "Dzikir",
+  "navPrayer": "Shalat",
+  "navTasbeeh": "Tasbih",
+  "navMore": "Lainnya",
+  "commonCancel": "Batal",
+  "commonSave": "Simpan",
+  "commonDelete": "Hapus",
+  "commonClose": "Tutup",
+  "commonOk": "OK",
+  "commonBack": "Kembali",
+  "commonNext": "Berikutnya",
+  "commonSkip": "Lewati",
+  "commonDone": "Selesai",
+  "commonRetry": "Coba Lagi",
+  "commonShare": "Bagikan",
+  "commonSearch": "Cari",
+  "commonEdit": "Ubah",
+  "commonConfirm": "Konfirmasi",
+  "commonLoading": "Memuat…",
+  "commonError": "Terjadi kesalahan",
+  "commonYes": "Ya",
+  "commonNo": "Tidak",
+  "languageName_ar": "Arab",
+  "languageName_en": "Inggris",
+  "languageName_de": "Jerman",
+  "languageName_tr": "Turki",
+  "settingsLanguage": "Bahasa",
+  "settingsLanguageSystem": "Bahasa sistem",
+  "settingsLanguageSubtitle": "Pilih bahasa tampilan",
+  "asmaUlHusnaTitle": "99 Nama Allah",
+  "sourcesLicensesTitle": "Sumber & Lisensi",
+  "sourcesOssLicensesButton": "Lisensi paket open-source",
+  "aboutTitle": "Tentang",
+  "aboutTagline": "Teman harian Anda untuk dzikir dan Al-Quran",
+  "aboutVersion": "Versi 1.0.0",
+  "aboutBody": "Wirdi adalah aplikasi harian Islam.",
+  "onboardingSkip": "Lewati",
+  "onboardingSlide1": "Jadikan Al-Quran bagian dari harimu",
+  "onboardingSlide2": "Pantau wird harianmu dan bangun kebiasaan",
+  "onboardingSlide3": "Ingatkan hatimu sebelum waktu mengingatkanmu",
+  "onboardingStart": "Mulai perjalananmu",
+  "onboardingNext": "Berikutnya",
+  "privacyPolicyTitle": "Kebijakan Privasi",
+  "favoritesTitle": "Favorit",
+  "favoritesTabAyahs": "Ayat Quran",
+  "favoritesTabAzkar": "Dzikir",
+  "favoritesLoadError": "Tidak dapat memuat favorit",
+  "favoritesEmptyAyahs": "Belum ada ayat favorit",
+  "favoritesEmptyAzkar": "Belum ada azkar favorit",
+  "favoritesAyahSubtitle": "Surah {surahName} - Ayat {ayahNumber}",
+  "@favoritesAyahSubtitle": {
+    "placeholders": {
+      "surahName": {
+        "type": "String"
+      },
+      "ayahNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "zakatTitle": "Kalkulator Zakat",
+  "zakatNisabHint": "Masukkan nilai nisab hari ini (dengan harga pasar emas atau perak saat ini) sebelum menghitung, karena harga nisab berubah setiap hari dan tidak dapat ditetapkan secara tetap dalam aplikasi. Anda dapat memeriksa dengan otoritas fatwa setempat atau mencari harga emas terkini (85 gram emas, atau setaranya dalam perak).",
+  "zakatCurrentNisab": "Nilai nisab saat ini",
+  "zakatableAssets": "Aset wajib zakat",
+  "zakatCash": "Uang tunai dan setara (bank, dompet)",
+  "zakatGoldSilver": "Emas dan perak (nilai pasar)",
+  "zakatInvestments": "Investasi dan saham",
+  "zakatBusiness": "Barang dagangan (barang untuk dijual)",
+  "zakatReceivables": "Utang yang dipinjamkan kepada Anda (diperkirakan dapat ditagih)",
+  "zakatOwedDebts": "Utang yang Anda tanggung",
+  "zakatCurrentDebts": "Utang dan tagihan yang saat ini Anda tanggung",
+  "zakatNetWealth": "Kekayaan bersih wajib zakat",
+  "zakatEnterNisabFirst": "Masukkan nilai nisab terlebih dahulu",
+  "zakatBelowNisab": "Kekayaan Anda di bawah nisab — tidak wajib zakat",
+  "zakatDue": "Zakat yang wajib dibayar (2,5%)",
+  "zakatFootnote": "Catatan: kalkulator ini memberikan perkiraan umum dengan tarif standar (2,5%) atas kekayaan yang dimiliki selama satu tahun qamariah penuh dan telah mencapai nisab. Zakat atas hasil panen, ternak, dan barang tambang mengikuti aturan berbeda yang tidak dibahas di sini. Untuk situasi khusus, sebaiknya tanyakan kepada ulama yang kompeten.",
+  "zakatHistoryTooltip": "Riwayat zakat",
+  "zakatSaveToHistory": "Simpan ke riwayat",
+  "zakatSavedToHistory": "Tersimpan ke riwayat",
+  "zakatHistoryEmpty": "Belum ada perhitungan tersimpan",
+  "settingsTitle": "Pengaturan",
+  "settingsAppearance": "Tampilan",
+  "settingsMode": "Mode",
+  "settingsModeLight": "Terang",
+  "settingsModeDark": "Gelap",
+  "settingsModeAuto": "Otomatis",
+  "settingsFontSize": "Ukuran font",
+  "settingsFontPreview": "Contoh teks",
+  "settingsShowTransliteration": "Tampilkan transliterasi Latin",
+  "settingsShowTransliterationSubtitle": "Membantu bagi yang sedang belajar membaca — muncul di bawah setiap ayat",
+  "settingsPrayerReminder": "Pengingat Salat",
+  "settingsPrayerReminderEnable": "Aktifkan pengingat salat berikutnya",
+  "settingsPrayerReminderSubtitle": "Pengingat hanya berfungsi saat aplikasi terbuka",
+  "settingsPrayerReminderMinutesBefore": "Ingatkan sebelum salat (menit)",
+  "settingsPrayerReminderMinutesLabel": "{minutes} mnt",
+  "settingsPrayerReminderMethod": "Metode pengingat",
+  "settingsReminderBanner": "Notifikasi saja",
+  "settingsReminderBeep": "Nada peringatan",
+  "settingsReminderAdhan": "Azan lengkap",
+  "settingsTestTone": "Uji nada",
+  "settingsAdhanSound": "Suara azan",
+  "settingsStopPreview": "Hentikan pratinjau",
+  "settingsListen": "Dengarkan",
+  "settingsReminderNote": "Catatan: aplikasi mengirim notifikasi nyata bahkan saat ditutup, tetapi Anda perlu memberikan izin notifikasi (dan izin alarm tepat di Android 12+) saat mengaktifkannya. Pengingat hari ini dan besok dijadwalkan ulang setiap kali Anda membuka layar Beranda atau Waktu Salat.",
+  "settingsDailyWird": "Wird harian",
+  "settingsDailyWirdTarget": "Target harian (halaman/surah)",
+  "settingsDailyWirdPerDay": "{count} per hari",
+  "settingsAboutSupport": "Tentang & Dukungan",
+  "settingsAbout": "Tentang",
+  "settingsSourcesLicenses": "Sumber & Lisensi",
+  "settingsPrivacyPolicy": "Kebijakan Privasi",
+  "settingsDataManagement": "Pengelolaan Data",
+  "settingsQuranLastUpdate": "Pembaruan Al-Qur'an terakhir",
+  "settingsAzkarLastUpdate": "Pembaruan Azkar terakhir",
+  "settingsNotDownloadedYet": "Belum diunduh",
+  "settingsUpdateNow": "Perbarui data sekarang",
+  "settingsRequiresInternet": "Memerlukan koneksi internet",
+  "settingsDataUpdated": "Data Al-Qur'an dan Azkar diperbarui",
+  "settingsDownloadedAudio": "Rekaman yang diunduh untuk didengarkan offline",
+  "settingsNoDownloadedAudio": "Tidak ada rekaman yang diunduh",
+  "settingsMbDownloaded": "{size} MB terunduh",
+  "settingsDeleteAll": "Hapus semua",
+  "settingsDeleteAllDownloadsTitle": "Hapus semua rekaman yang diunduh",
+  "settingsDeleteAllDownloadsBody": "Semua berkas audio yang diunduh untuk setiap surah akan dihapus. Pemutaran akan kembali ke streaming online.",
+  "settingsResetKhatma": "Atur ulang progres Khatam",
+  "settingsResetKhatmaSubtitle": "Mulai Khatam baru dari awal",
+  "settingsResetKhatmaBody": "Setiap surah akan ditandai belum dibaca lagi untuk memulai Khatam baru. Wird harian dan favorit Anda tidak akan terpengaruh.",
+  "settingsResetKhatmaConfirm": "Atur ulang",
+  "settingsKhatmaResetDone": "Khatam baru telah dimulai, semoga sukses! 🌿",
+  "settingsDeleteLocalData": "Hapus semua data lokal",
+  "settingsDeleteLocalDataBody": "Favorit, statistik tasbih, progres wird, dan semua pengaturan akan dihapus.",
+  "settingsLocalDataDeleted": "Semua data lokal telah dihapus",
+  "settingsPreviewFailed": "Tidak dapat memutar pratinjau — periksa koneksi Anda",
+  "@settingsPrayerReminderMinutesLabel": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "@settingsDailyWirdPerDay": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@settingsMbDownloaded": {
+    "placeholders": {
+      "size": {
+        "type": "String"
+      }
+    }
+  },
+  "quranTranslationUnavailable": "Terjemahan tidak tersedia untuk ayat ini",
+  "quranTranslationLoadFailed": "Gagal memuat terjemahan",
+  "quranTranslationRetry": "Coba lagi",
+  "quranTranslationSourceNote": "Terjemahan dari QuranEnc.com",
+  "homeGreetingNight": "Malam yang penuh berkah 🌙",
+  "homeGreetingMorning": "Selamat pagi 👋",
+  "homeGreetingAfternoon": "Semoga harimu menyenangkan ☀️",
+  "homeGreetingEvening": "Selamat sore 👋",
+  "homeStreakDays": "Rentetan wird: {days} hari 🔥",
+  "homeContinueToday": "Lanjutkan apa yang Anda mulai hari ini",
+  "homeKhatmaProgress": "Progres Khatam: {percent}%",
+  "homeIslamicTools": "Alat Islami",
+  "homeNextPrayer": "Shalat berikutnya",
+  "homeInLabel": "dalam {countdown}",
+  "homeCachedPrayerTimes": "Waktu tersimpan terakhir (offline)",
+  "homeEnableLocationForPrayer": "Aktifkan lokasi untuk melihat salat berikutnya",
+  "homeDailyWird": "Wird harian",
+  "homeWirdCompleted": "Anda telah menyelesaikan wird hari ini, semoga Allah memberkati Anda 🎉",
+  "homeWirdProgress": "{pages} dari {target} halaman/surah",
+  "homeContinueReading": "Lanjutkan Membaca",
+  "homeNoLastReading": "Belum ada posisi bacaan terakhir",
+  "homeLastReadingSubtitle": "Surah {surahName} — Ayat {ayahNumber}",
+  "homeFavorites": "Favorit",
+  "homeNoFavoritesYet": "Belum ada item favorit",
+  "homeFavoritesSavedCount": "{count} item tersimpan",
+  "homeQuoteOfTheDay": "Kutipan Hari Ini",
+  "homeThisWeek": "Minggu ini",
+  "homeActiveDaysOf": "{active} dari {total} hari aktif",
+  "homeWirdTargetMetSummary": "Anda mencapai target wird harian pada {met} dari {total} hari minggu ini",
+  "homeQuickActions": "Aksi Cepat",
+  "homeQuickAzkar": "Azkar",
+  "homeQuickTasbeeh": "Tasbeeh",
+  "homeQuickPrayer": "Salat",
+  "homeCompletionPercent": "Selesai {percent} persen",
+  "homeDayNotYet": "{day}: belum tiba",
+  "homeDaySummary": "{day}: {pages} halaman, {azkar} azkar, {tasbeeh} tasbeeh, {prayers} salat",
+  "dayNameSat": "Sab",
+  "dayNameSun": "Min",
+  "dayNameMon": "Sen",
+  "dayNameTue": "Sel",
+  "dayNameWed": "Rab",
+  "dayNameThu": "Kam",
+  "dayNameFri": "Jum",
+  "@homeStreakDays": {
+    "placeholders": {
+      "days": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeKhatmaProgress": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeInLabel": {
+    "placeholders": {
+      "countdown": {
+        "type": "String"
+      }
+    }
+  },
+  "@homeWirdProgress": {
+    "placeholders": {
+      "pages": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeLastReadingSubtitle": {
+    "placeholders": {
+      "surahName": {
+        "type": "String"
+      },
+      "ayahNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeFavoritesSavedCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeActiveDaysOf": {
+    "placeholders": {
+      "active": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeWirdTargetMetSummary": {
+    "placeholders": {
+      "met": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeCompletionPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "@homeDayNotYet": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      }
+    }
+  },
+  "@homeDaySummary": {
+    "placeholders": {
+      "day": {
+        "type": "String"
+      },
+      "pages": {
+        "type": "int"
+      },
+      "azkar": {
+        "type": "int"
+      },
+      "tasbeeh": {
+        "type": "int"
+      },
+      "prayers": {
+        "type": "int"
+      }
+    }
+  },
+  "prayerFajr": "Subuh",
+  "prayerDhuhr": "Dzuhur",
+  "prayerAsr": "Ashar",
+  "prayerMaghrib": "Maghrib",
+  "prayerIsha": "Isya",
+  "prayerTimesTitle": "Waktu Shalat",
+  "prayerSetCityManually": "Atur kota secara manual",
+  "prayerCityHint": "Contoh: Kairo, Mesir",
+  "prayerSearch": "Cari",
+  "prayerCityNotFound": "Tidak dapat menemukan “{city}” — periksa ejaannya dan coba lagi",
+  "prayerAvailabilityLocationDisabled": "Layanan lokasi dinonaktifkan di perangkat Anda. Aktifkan, atau atur kota Anda secara manual.",
+  "prayerAvailabilityPermissionDenied": "Aplikasi memerlukan akses lokasi untuk menampilkan waktu salat yang akurat, atau Anda dapat mengatur kota secara manual.",
+  "prayerAvailabilityPermissionDeniedForever": "Izin lokasi ditolak secara permanen. Aktifkan dari pengaturan sistem, atau atur kota Anda secara manual.",
+  "prayerAvailabilityNetworkError": "Tidak dapat terhubung ke internet dan tidak ditemukan waktu salat tersimpan.",
+  "prayerRetry": "Coba Lagi",
+  "prayerUseGps": "Gunakan lokasi saat ini (GPS)",
+  "prayerRefresh": "Segarkan",
+  "prayerOfflineBanner": "Tidak ada koneksi — menampilkan waktu tersimpan terakhir",
+  "prayerNextPrayerLabel": "Shalat berikutnya",
+  "prayerTimeRemaining": "Waktu tersisa",
+  "prayerNotYetDue": "Waktu salat {prayer} belum tiba",
+  "prayerMarkedDone": "Salat {prayer} ditandai selesai",
+  "prayerNotDoneYet": "Salat {prayer} belum dilakukan",
+  "prayerFootnote": "Catatan: waktu didasarkan pada lokasi Anda atau kota yang dipilih, menggunakan layanan AlAdhan dengan metode perhitungan Mesir.",
+  "prayerReminderApproaching": "Salat {prayer} akan tiba dalam {minutes} menit",
+  "@prayerCityNotFound": {
+    "placeholders": {
+      "city": {
+        "type": "String"
+      }
+    }
+  },
+  "@prayerNotYetDue": {
+    "placeholders": {
+      "prayer": {
+        "type": "String"
+      }
+    }
+  },
+  "@prayerMarkedDone": {
+    "placeholders": {
+      "prayer": {
+        "type": "String"
+      }
+    }
+  },
+  "@prayerNotDoneYet": {
+    "placeholders": {
+      "prayer": {
+        "type": "String"
+      }
+    }
+  },
+  "@prayerReminderApproaching": {
+    "placeholders": {
+      "prayer": {
+        "type": "String"
+      },
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "tasbeehTitle": "Tasbih",
+  "tasbeehResetToday": "Atur ulang hitungan hari ini",
+  "tasbeehCustom": "Frasa khusus",
+  "tasbeehToday": "Hari ini",
+  "tasbeehTarget": "Target",
+  "tasbeehPhraseTotal": "Total frasa",
+  "tasbeehGrandTotal": "Total keseluruhan",
+  "tasbeehCounterLabel": "Penghitung tasbeeh {phrase}, saat ini {count} dari {target}",
+  "tasbeehTapHint": "Ketuk untuk menghitung — tekan lama pada frasa khusus untuk menghapusnya",
+  "tasbeehAddCustomTitle": "Frasa khusus",
+  "tasbeehPhraseTextLabel": "Teks frasa",
+  "tasbeehPhraseTextHint": "Contoh: La hawla wa la quwwata illa billah",
+  "tasbeehTargetLabel": "Target",
+  "tasbeehAdd": "Tambah",
+  "@tasbeehCounterLabel": {
+    "placeholders": {
+      "phrase": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      },
+      "target": {
+        "type": "int"
+      }
+    }
+  },
+  "tasbeehGlossSubhanallah": "SubhanAllah — Mahasuci Allah",
+  "tasbeehGlossAlhamdulillah": "Alhamdulillah — Segala puji bagi Allah",
+  "tasbeehGlossAllahuakbar": "Allahu Akbar — Allah Mahabesar",
+  "tasbeehGlossLaIlaha": "La ilaha illallah — Tiada tuhan selain Allah",
+  "tasbeehGlossAstaghfirullah": "Astaghfirullah — Aku memohon ampun kepada Allah",
+  "tasbeehGlossSalawat": "Allahumma salli ala Muhammad — Ya Allah, limpahkanlah selawat atas Muhammad",
+  "azkarDuasTitle": "Dzikir & Doa",
+  "azkarTabAzkar": "Dzikir",
+  "azkarTabDuas": "Doa",
+  "azkarFavoritesTooltip": "Favorit",
+  "azkarLoadError": "Gagal memuat azkar. Periksa koneksi internet Anda.",
+  "azkarSearchHint": "Cari azkar",
+  "azkarNoResults": "Tidak ada hasil",
+  "azkarCategorySubtitle": "{count} azkar — {completed} selesai hari ini",
+  "azkarAllDoneInSection": "Anda telah menyelesaikan semua azkar di bagian ini 🌿",
+  "azkarShowCompleted": "Tampilkan yang selesai",
+  "azkarHideCompleted": "Sembunyikan yang selesai",
+  "azkarCompletedSnackbar": "Bagus 🌿 dzikir ini telah selesai",
+  "azkarCopiedSnackbar": "Dzikir disalin — Anda dapat menempelkannya untuk membagikan",
+  "azkarPlusOne": "+1",
+  "azkarFavoritesTitle": "Azkar favorit",
+  "azkarNoFavoritesYet": "Belum ada azkar favorit",
+  "azkarRetry": "Coba lagi",
+  "@azkarCategorySubtitle": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      },
+      "completed": {
+        "type": "int"
+      }
+    }
+  },
+  "quranTitle": "Al-Quran Al-Karim",
+  "quranViewMushaf": "Lihat Mushaf",
+  "quranTabSurahs": "Surah",
+  "quranTabJuz": "Juz",
+  "quranTabSearch": "Pencarian",
+  "quranTabFavorites": "Favorit",
+  "quranLoadError": "Gagal memuat Al-Qur'an. Periksa koneksi internet Anda.",
+  "quranViewMode": "Mode tampilan",
+  "quranMushafPagesLoadError": "Gagal memuat halaman Mushaf — periksa koneksi Anda",
+  "quranViewAsMushafPages": "Lihat sebagai halaman Mushaf",
+  "quranCompletionPercent": "Al-Qur'an selesai {percent} persen",
+  "quranKhatmaProgress": "Progres Khatam",
+  "quranSearchSurahHint": "Cari berdasarkan nama atau nomor surah",
+  "quranSurahSubtitle": "{englishName} - {count} ayat",
+  "quranJuzNumber": "Juz {number}",
+  "quranJuzStartsFrom": "Dimulai dari Surah {surahName} - Ayat {ayahNumber}",
+  "quranSearchAyahHint": "Cari teks ayat",
+  "quranSearchMinChars": "Ketik minimal 2 karakter untuk mencari",
+  "quranAyahLocation": "Surah {surahName} - Ayat {ayahNumber}",
+  "quranNoFavoriteAyahsYet": "Belum ada ayat favorit",
+  "quranChooseReciter": "Pilih Qari",
+  "quranTafsirTimeoutError": "Pemuatan tafsir memakan waktu terlalu lama — berkas berukuran besar (2,7 MB), coba dengan koneksi yang lebih cepat",
+  "quranTafsirLoadError": "Gagal memuat tafsir — periksa koneksi Anda",
+  "quranLastReadingSaved": "Bacaan terakhir disimpan: Surah {surahName} - Ayat {ayahNumber}",
+  "quranAyahCopyFormat": "{text} (Surah {surahName}: {ayahNumber})",
+  "quranAyahCopiedSnackbar": "Ayat disalin",
+  "quranAddedToWird": "Bacaan ini ditambahkan ke wird harian Anda 🌿",
+  "quranSurahAppBarTitle": "Surah {name}",
+  "quranViewAsMushafPageTooltip": "Lihat surah ini sebagai halaman Mushaf",
+  "quranChooseReciterTooltip": "Pilih qari ({reciterName})",
+  "quranDecreaseFontTooltip": "Perkecil ukuran font",
+  "quranIncreaseFontTooltip": "Perbesar ukuran font",
+  "quranAddToWirdTooltip": "Tambahkan ke wird harian",
+  "quranAyahCountLabel": "{count} ayat",
+  "quranStopSurahRecitationLabel": "Hentikan bacaan surah",
+  "quranPlaySurahRecitationLabel": "Putar bacaan seluruh surah",
+  "quranStopLabel": "Berhenti",
+  "quranPlayWholeSurahLabel": "Putar seluruh surah",
+  "quranNoTafsirAvailable": "Tidak ada tafsir tersedia untuk ayat ini",
+  "quranStopPlayingAyahLabel": "Hentikan pemutaran ayat ini",
+  "quranPlayAyahLabel": "Putar Ayat {number}",
+  "quranPlayAyahTooltip": "Putar ayat",
+  "quranRepeatAyahTooltip": "Ulangi ayat ini",
+  "quranHideTafsirTooltip": "Sembunyikan tafsir",
+  "quranShowTafsirTooltip": "Tampilkan tafsir ringkas",
+  "quranSaveAsLastReadingTooltip": "Simpan sebagai bacaan terakhir",
+  "quranCopyAyahTooltip": "Salin ayat",
+  "quranRemoveFromFavoritesLabel": "Hapus dari favorit",
+  "quranAddToFavoritesLabel": "Tambahkan ke favorit",
+  "quranRetry": "Coba lagi",
+  "quranDownloadedForOfflineSnackbar": "Surah diunduh untuk didengarkan offline",
+  "quranDeleteDownloadTitle": "Hapus unduhan",
+  "quranDeleteDownloadBody": "Berkas audio yang diunduh untuk surah ini akan dihapus.",
+  "quranStopDownloadTooltip": "Hentikan unduhan ({done}/{total})",
+  "quranDeleteDownloadedTooltip": "Diunduh untuk didengarkan offline — ketuk untuk menghapus",
+  "quranDownloadForOfflineTooltip": "Unduh surah untuk didengarkan offline",
+  "@quranCompletionPercent": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "@quranSurahSubtitle": {
+    "placeholders": {
+      "englishName": {
+        "type": "String"
+      },
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@quranJuzNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@quranJuzStartsFrom": {
+    "placeholders": {
+      "surahName": {
+        "type": "String"
+      },
+      "ayahNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "@quranAyahLocation": {
+    "placeholders": {
+      "surahName": {
+        "type": "String"
+      },
+      "ayahNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "@quranLastReadingSaved": {
+    "placeholders": {
+      "surahName": {
+        "type": "String"
+      },
+      "ayahNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "@quranAyahCopyFormat": {
+    "placeholders": {
+      "text": {
+        "type": "String"
+      },
+      "surahName": {
+        "type": "String"
+      },
+      "ayahNumber": {
+        "type": "int"
+      }
+    }
+  },
+  "@quranSurahAppBarTitle": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "@quranChooseReciterTooltip": {
+    "placeholders": {
+      "reciterName": {
+        "type": "String"
+      }
+    }
+  },
+  "@quranAyahCountLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "@quranPlayAyahLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "@quranStopDownloadTooltip": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "qiblaTitle": "Arah Kiblat",
+  "qiblaRetry": "Coba lagi",
+  "qiblaLocationServiceDisabled": "Layanan lokasi dinonaktifkan di perangkat Anda. Aktifkan untuk menemukan arah Kiblat.",
+  "qiblaPermissionDenied": "Aplikasi memerlukan akses lokasi untuk menemukan arah Kiblat secara akurat.",
+  "qiblaLocationError": "Tidak dapat menentukan lokasi Anda. Periksa koneksi Anda dan coba lagi.",
+  "qiblaNoCompassSensor": "Perangkat Anda tidak memiliki sensor kompas. Gunakan nilai di bawah dengan kompas lain untuk berorientasi.",
+  "qiblaBearingFromNorth": "Arah dari utara sebenarnya",
+  "qiblaCompassNorth": "U",
+  "qiblaCompassSouth": "S",
+  "qiblaCompassEast": "T",
+  "qiblaCompassWest": "B",
+  "qiblaAligned": "Anda menghadap Kiblat ✓",
+  "qiblaNotAligned": "Putar perangkat Anda hingga penanda mengarah ke atas",
+  "qiblaBearingValue": "Arah Kiblat: {degrees}° dari utara",
+  "qiblaCalibrationHint": "Jika kompas tampak tidak akurat, gerakkan perangkat Anda membentuk angka 8, jauh dari benda magnetik, untuk mengalibrasinya",
+  "toolQiblaTitle": "Arah Kiblat",
+  "toolQiblaSubtitle": "Kompas untuk menemukan arah Kiblat di mana pun Anda berada",
+  "@qiblaBearingValue": {
+    "placeholders": {
+      "degrees": {
+        "type": "int"
+      }
+    }
+  },
+  "toolsTitle": "Alat Islami",
+  "toolZakatTitle": "Kalkulator Zakat",
+  "toolZakatSubtitle": "Hitung zakat Anda dengan mudah",
+  "toolAsmaTitle": "99 Nama Allah",
+  "toolAsmaSubtitle": "99 Asmaul Husna dan artinya",
+  "toolRamadanTitle": "Kompanion Ramadan",
+  "toolRamadanSubtitle": "Hitung mundur sahur dan berbuka, serta pelacak puasa",
+  "toolDuasTitle": "Doa Saya",
+  "toolDuasSubtitle": "Simpan doa pribadi Anda sendiri",
+  "toolMosqueTitle": "Masjid & Restoran Halal",
+  "toolMosqueSubtitle": "Pencarian gratis menggunakan data OpenStreetMap",
+  "hadithTitle": "Empat Puluh Hadis an-Nawawi",
+  "hadithSubtitle": "Kumpulan hadis ringkas yang mencakup dasar-dasar agama",
+  "hadithLoadError": "Gagal memuat hadis. Periksa koneksi internet Anda.",
+  "hadithRetry": "Coba lagi",
+  "hadithNumberLabel": "Hadis {number}",
+  "hadithSearchHint": "Cari hadis",
+  "hadithNoResults": "Tidak ada hasil",
+  "hadithCopiedSnackbar": "Hadis disalin",
+  "hadithAddToFavoritesLabel": "Tambahkan ke favorit",
+  "hadithRemoveFromFavoritesLabel": "Hapus dari favorit",
+  "hadithCopyTooltip": "Salin hadis",
+  "hadithTranslationNote": "Ditampilkan dalam bahasa Arab dan Inggris — terjemahan bahasa Jerman belum tersedia untuk koleksi ini",
+  "toolHadithTitle": "Hadis Nabi",
+  "toolHadithSubtitle": "Empat Puluh Hadis an-Nawawi dan Ensiklopedia Hadis",
+  "@hadithNumberLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "homeHadithOfTheDay": "Hadis Hari Ini",
+  "homeShareHadith": "Bagikan Hadis",
+  "homeHadithSource": "Sumber: 40 Hadis an-Nawawi",
+  "toolKhatmaTitle": "Pelacak Khatma",
+  "toolKhatmaSubtitle": "Rencanakan dan lacak penyelesaian Al-Qur'an",
+  "khatmaTrackerTitle": "Pelacak Khatma",
+  "khatmaNoPlanTitle": "Mulai Perjalanan Khatam Anda",
+  "khatmaNoPlanBody": "Tetapkan tanggal target untuk menyelesaikan membaca seluruh Al-Qur'an, dan kami akan membantu Anda tetap pada jalurnya.",
+  "khatmaChooseDuration": "Pilih durasi",
+  "khatmaDuration7Days": "7 hari",
+  "khatmaDuration30Days": "30 hari",
+  "khatmaDuration60Days": "60 hari",
+  "khatmaDuration90Days": "90 hari",
+  "khatmaCustomDate": "Pilih tanggal khusus",
+  "khatmaProgressLabel": "{completed} dari {total} surah",
+  "@khatmaProgressLabel": {
+    "placeholders": {
+      "completed": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "khatmaDaysElapsed": "Hari berlalu",
+  "khatmaDaysRemaining": "Hari tersisa",
+  "khatmaTargetDate": "Tanggal target",
+  "khatmaOnTrack": "Anda berada di jalur yang benar — pertahankan!",
+  "khatmaBehindSchedule": "Anda sedikit tertinggal dari jadwal",
+  "khatmaPaceNeeded": "Baca sekitar {count} surah/hari untuk selesai tepat waktu",
+  "@khatmaPaceNeeded": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "khatmaCompletedCelebration": "Alhamdulillah! Anda telah menyelesaikan Khatam Anda 🎉",
+  "khatmaContinueReading": "Lanjutkan Membaca",
+  "khatmaEditPlan": "Ubah Tanggal Target",
+  "khatmaResetPlanTitle": "Atur Ulang Rencana Khatam",
+  "khatmaResetPlanBody": "Ini akan menghapus rencana dan progres bacaan Anda sehingga Anda dapat memulai Khatam baru. Tindakan ini tidak dapat dibatalkan.",
+  "khatmaResetPlanConfirm": "Atur ulang",
+  "khatmaPlanReset": "Khatam baru telah dimulai, semoga sukses! 🌿",
+  "settingsRemindMeFor": "Ingatkan saya untuk",
+  "settingsNotifyAtPrayerTime": "Beri tahu saat waktu salat",
+  "settingsNotifyAtPrayerTimeSubtitle": "Dapatkan peringatan tepat saat waktu salat dimulai",
+  "settingsPostPrayerReminder": "Ingatkan saya untuk salat",
+  "settingsPostPrayerReminderSubtitle": "Pengingat lembut jika Anda belum menandai salat sebagai selesai",
+  "settingsPostPrayerReminderMinutesLabel": "{minutes} mnt setelahnya",
+  "@settingsPostPrayerReminderMinutesLabel": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "settingsReminderOff": "Nonaktif",
+  "prayerTimeNowBody": "Sudah waktunya salat {prayer}",
+  "@prayerTimeNowBody": {
+    "placeholders": {
+      "prayer": {
+        "type": "String"
+      }
+    }
+  },
+  "postPrayerReminderBody": "Sudahkah Anda salat {prayer}?",
+  "@postPrayerReminderBody": {
+    "placeholders": {
+      "prayer": {
+        "type": "String"
+      }
+    }
+  },
+  "settingsMoreReminders": "Pengingat Lainnya",
+  "settingsFridayReminder": "Pengingat Jumat",
+  "settingsFridayReminderSubtitle": "Pengingat mingguan untuk salat Jumat dan membaca Surah Al-Kahf",
+  "settingsMorningAzkarReminder": "Azkar Pagi",
+  "settingsMorningAzkarReminderSubtitle": "Pengingat harian untuk membaca dzikir pagi Anda",
+  "settingsEveningAzkarReminder": "Azkar Sore",
+  "settingsEveningAzkarReminderSubtitle": "Pengingat harian untuk membaca dzikir sore Anda",
+  "settingsDailyWirdReminder": "Wird Harian",
+  "settingsDailyWirdReminderSubtitle": "Pengingat harian untuk menyelesaikan bacaan Al-Qur'an hari ini",
+  "settingsSleepAzkarReminder": "Azkar Sebelum Tidur",
+  "settingsSleepAzkarReminderSubtitle": "Pengingat malam untuk membaca dzikir sebelum tidur Anda",
+  "reminderFridayBody": "Jumu'ah Mubarak! Jangan lupa membaca Surah Al-Kahf hari ini 🕌",
+  "reminderMorningAzkarBody": "Waktunya Azkar pagi Anda 🌞",
+  "reminderEveningAzkarBody": "Waktunya Azkar sore Anda 🌇",
+  "reminderDailyWirdBody": "Sudahkah Anda menyelesaikan wird Al-Qur'an hari ini? 📖",
+  "reminderSleepAzkarBody": "Sebelum tidur, bacalah Azkar sebelum tidur Anda 🌙",
+  "khatmaMyPlans": "Rencana Khatam Saya",
+  "khatmaStartNewPlan": "Mulai Khatam Baru",
+  "khatmaPlanLabelHint": "Beri nama Khatam ini (opsional)",
+  "khatmaBehindByCount": "Tertinggal {count} surah dari jadwal",
+  "@khatmaBehindByCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "khatmaNewPaceLabel": "Target harian baru: {count} surah/hari",
+  "@khatmaNewPaceLabel": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "khatmaDeletePlanTitle": "Hapus Khatam ini?",
+  "khatmaDeletePlanBody": "Ini akan menghapus rencana dan pelacakannya. Tindakan ini tidak dapat dibatalkan.",
+  "khatmaDeletePlanConfirm": "Hapus",
+  "khatmaDefaultPlanLabel": "Khatam #{number}",
+  "@khatmaDefaultPlanLabel": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "khatmaAddAnother": "Tambah Khatam Lain",
+  "toolInsightsTitle": "Wawasan Wirdi",
+  "toolInsightsSubtitle": "Lihat statistik dan tren ibadah mingguan Anda",
+  "insightsTitle": "Wawasan Wirdi",
+  "insightsThisWeek": "Minggu Ini",
+  "insightsQuranPages": "Halaman Al-Qur'an",
+  "insightsAzkarCompleted": "Azkar Selesai",
+  "insightsPrayers": "Salat",
+  "insightsTasbeeh": "Tasbeeh",
+  "insightsCurrentStreak": "Rentetan Saat Ini",
+  "insightsDaysCount": "{count} hari",
+  "@insightsDaysCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "insightsWeeklyActivity": "Aktivitas Mingguan",
+  "insightsBestDay": "Hari Terbaik",
+  "insightsMostConsistent": "Paling Konsisten",
+  "insightsWeekComparisonTitle": "Minggu Ini vs Minggu Lalu",
+  "insightsImproved": "{percent}% lebih aktif dari minggu lalu",
+  "@insightsImproved": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "insightsDeclined": "{percent}% kurang aktif dari minggu lalu",
+  "@insightsDeclined": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "insightsFirstActiveWeek": "Minggu aktif pertama Anda — pertahankan!",
+  "insightsNoActivityYet": "Belum ada aktivitas tercatat minggu ini",
+  "insightsSameAsLastWeek": "Tingkat aktivitas sama seperti minggu lalu",
+  "insightsNoBestDayYet": "Belum cukup aktivitas",
+  "toolMyWirdiTitle": "Wirdi Saya",
+  "toolMyWirdiSubtitle": "Lihat perkembangan Anda hari ini di semua ibadah",
+  "myWirdiTitle": "Wirdi Saya",
+  "myWirdiToday": "Hari Ini",
+  "myWirdiCompleted": "Alhamdulillah! Anda telah menyelesaikan Wird hari ini 🎉",
+  "myWirdiRemaining": "{percent}% tersisa untuk menyelesaikan Wird hari ini",
+  "@myWirdiRemaining": {
+    "placeholders": {
+      "percent": {
+        "type": "int"
+      }
+    }
+  },
+  "myWirdiPersonalDua": "Doa Pribadi",
+  "myWirdiDuaDone": "Dibaca hari ini",
+  "myWirdiDuaNotYet": "Belum hari ini",
+  "homeMyWirdiCardTitle": "Wirdi Saya Hari Ini",
+  "homeQuickQibla": "Kiblat",
+  "qiblaDistanceLabel": "Jarak ke Mekkah",
+  "qiblaDistanceValue": "{km} km",
+  "@qiblaDistanceValue": {
+    "placeholders": {
+      "km": {
+        "type": "int"
+      }
+    }
+  },
+  "achievementStreak3Title": "Langkah Awal",
+  "achievementStreak3Desc": "Mencapai rentetan wird 3 hari",
+  "achievementStreak7Title": "Satu Minggu Kuat",
+  "achievementStreak7Desc": "Mencapai rentetan wird 7 hari",
+  "achievementStreak30Title": "Kebiasaan Terbentuk",
+  "achievementStreak30Desc": "Mencapai rentetan wird 30 hari",
+  "achievementStreak100Title": "Tak Terhentikan",
+  "achievementStreak100Desc": "Mencapai rentetan wird 100 hari",
+  "achievementQuran10Title": "Langkah Pertama",
+  "achievementQuran10Desc": "Menyelesaikan 10% Al-Qur'an",
+  "achievementQuran25Title": "Seperempat Jalan",
+  "achievementQuran25Desc": "Menyelesaikan 25% Al-Qur'an",
+  "achievementQuran50Title": "Setengah Jalan",
+  "achievementQuran50Desc": "Menyelesaikan 50% Al-Qur'an",
+  "achievementQuran100Title": "Khatm al-Qur'an",
+  "achievementQuran100Desc": "Menyelesaikan seluruh Al-Qur'an",
+  "achievementKhatma1Title": "Khatam Pertama",
+  "achievementKhatma1Desc": "Menyelesaikan rencana Khatam pertama Anda",
+  "achievementKhatma3Title": "Pecinta Khatam",
+  "achievementKhatma3Desc": "Menyelesaikan 3 rencana Khatam",
+  "achievementPages50Title": "Kutu Buku",
+  "achievementPages50Desc": "Membaca total 50 halaman",
+  "achievementPages200Title": "Pembaca Berdedikasi",
+  "achievementPages200Desc": "Membaca total 200 halaman",
+  "achievementPages604Title": "Mushaf Lengkap",
+  "achievementPages604Desc": "Membaca total 604 halaman — satu Mushaf lengkap",
+  "achievementAzkar50Title": "Pemula Dzikir",
+  "achievementAzkar50Desc": "Menyelesaikan 50 Azkar",
+  "achievementAzkar500Title": "Ahli Dzikir",
+  "achievementAzkar500Desc": "Menyelesaikan 500 Azkar",
+  "achievementTasbeeh100Title": "Tasbeeh Pertama",
+  "achievementTasbeeh100Desc": "Menghitung 100 Tasbeeh",
+  "achievementTasbeeh1000Title": "Pecinta Tasbeeh",
+  "achievementTasbeeh1000Desc": "Menghitung 1.000 Tasbeeh",
+  "achievementPrayers50Title": "Jamaah Konsisten",
+  "achievementPrayers50Desc": "Menandai 50 salat sebagai selesai",
+  "achievementPrayers350Title": "Juara Salat",
+  "achievementPrayers350Desc": "Menandai 350 salat sebagai selesai",
+  "achievementFavorites10Title": "Kolektor",
+  "achievementFavorites10Desc": "Menyimpan 10 favorit",
+  "achievementsTitle": "Pencapaian",
+  "achievementsUnlockedCount": "{unlocked} dari {total} terbuka",
+  "@achievementsUnlockedCount": {
+    "placeholders": {
+      "unlocked": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "toolAchievementsTitle": "Pencapaian",
+  "toolAchievementsSubtitle": "Lacak pencapaian dan lencana Anda",
+  "quranShareAsImageTooltip": "Bagikan sebagai gambar",
+  "ayahShareTitle": "Bagikan Ayat",
+  "ayahShareIncludeTranslation": "Sertakan terjemahan",
+  "ayahShareButton": "Bagikan",
+  "myDuasDialogTitleNew": "Doa Baru",
+  "myDuasDialogTitleEdit": "Ubah Doa",
+  "myDuasTitleFieldLabel": "Judul (opsional)",
+  "myDuasTextFieldLabel": "Teks doa",
+  "myDuasEmptyTitle": "Belum ada doa yang ditambahkan",
+  "myDuasEmptySubtitle": "Ketuk + untuk menambahkan doa Anda sendiri",
+  "ramadanCountdownToSuhoor": "Waktu tersisa hingga Sahur (Azan Subuh)",
+  "ramadanCountdownToIftar": "Waktu tersisa hingga Berbuka (Azan Magrib)",
+  "ramadanCountdownToSuhoorTomorrow": "Waktu tersisa hingga Sahur besok",
+  "ramadanLoadError": "Gagal memuat waktu salat yang diperlukan untuk Sahur dan Berbuka.",
+  "ramadanDayOfRamadan": "Hari ke-{day} Ramadan",
+  "@ramadanDayOfRamadan": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "ramadanFastingToday": "Berpuasa hari ini",
+  "ramadanFastingSubtitle": "Catat puasa Anda hari ini untuk melacak progres",
+  "ramadanDaysLoggedTitle": "Hari puasa yang tercatat bulan ini",
+  "ramadanHijriFootnote": "Catatan: tanggal Hijriah di sini adalah perkiraan hasil perhitungan dan dapat berbeda satu hari dari pengumuman resmi awal bulan negara Anda.",
+  "mushafTitle": "Mushaf",
+  "mushafStopAudioTooltip": "Hentikan audio",
+  "mushafLoadError": "Gagal memuat halaman Mushaf. Periksa koneksi internet Anda.",
+  "mushafTapAyahHint": "Ketuk ayat mana pun untuk memutar bacaannya",
+  "mushafPageNumber": "Halaman {number}",
+  "@mushafPageNumber": {
+    "placeholders": {
+      "number": {
+        "type": "int"
+      }
+    }
+  },
+  "mosqueLocationServiceDisabled": "Layanan lokasi dinonaktifkan di perangkat Anda.",
+  "mosqueLocationPermissionNeeded": "Aplikasi memerlukan akses lokasi untuk mencari tempat terdekat.",
+  "mosqueSearchError": "Gagal mencari tempat terdekat — periksa koneksi internet Anda.",
+  "mosqueTabMosques": "Masjid",
+  "mosqueTabHalalRestaurants": "Restoran halal",
+  "mosqueNoMosquesFound": "Tidak ditemukan masjid terdekat dalam data OpenStreetMap",
+  "mosqueNoHalalFound": "Tidak ditemukan restoran terdekat berlabel “halal” — data restoran halal di OpenStreetMap belum lengkap di banyak wilayah",
+  "onboardingGoalTitle": "Berapa banyak Al-Quran yang ingin Anda baca setiap hari?",
+  "onboardingGoalLight": "Ringan",
+  "onboardingGoalLightDesc": "2 halaman sehari",
+  "onboardingGoalRegular": "Reguler",
+  "onboardingGoalRegularDesc": "5 halaman sehari",
+  "onboardingGoalAdvanced": "Lanjutan",
+  "onboardingGoalAdvancedDesc": "10 halaman sehari",
+  "onboardingEnableReminders": "Aktifkan pengingat harian",
+  "onboardingEnableRemindersDesc": "Dapatkan pengingat untuk wird dan azkar harian Anda",
+  "toolBookmarksTitle": "Bookmark",
+  "toolBookmarksSubtitle": "Simpan ayat dengan catatan dan kategori",
+  "bookmarksTitle": "Bookmark",
+  "bookmarksEmptyTitle": "Belum ada penanda",
+  "bookmarksEmptySubtitle": "Ketuk ikon penanda pada ayat mana pun saat membaca untuk menyimpannya di sini",
+  "bookmarkAddTooltip": "Tambah penanda",
+  "bookmarkDialogTitle": "Tambah Penanda",
+  "bookmarkNoteLabel": "Catatan (opsional)",
+  "bookmarkCategoryLabel": "Kategori",
+  "bookmarkCategoryRamadan": "Ramadan",
+  "bookmarkCategoryDua": "Doa",
+  "bookmarkCategoryFamily": "Keluarga",
+  "bookmarkCategoryStudy": "Belajar",
+  "bookmarkCategoryPersonal": "Pribadi",
+  "bookmarkCategoryOther": "Semua",
+  "bookmarkSavedSnackbar": "Penanda disimpan",
+  "bookmarkDeleteConfirmTitle": "Hapus penanda ini?",
+  "bookmarkDeleteConfirmBody": "Tindakan ini tidak dapat dibatalkan.",
+  "bookmarkDeleteConfirm": "Hapus",
+  "settingsPrivacyCenter": "Pusat Privasi",
+  "settingsPrivacyCenterSubtitle": "Lihat apa yang tersimpan, ekspor atau hapus data Anda",
+  "privacyCenterTitle": "Pusat Privasi",
+  "privacyCenterIntro": "Data ibadah Anda adalah milik Anda.",
+  "privacyCenterLocalDataTitle": "Apa yang disimpan secara lokal",
+  "privacyCenterLocalDataBody": "Progres bacaan, hitungan Azkar/Tasbeeh, favorit, penanda, doa pribadi, rencana Khatam, pencapaian, dan pengaturan — hanya disimpan di perangkat ini menggunakan SharedPreferences. Tidak ada yang diunggah ke server.",
+  "privacyCenterLocationTitle": "Penggunaan lokasi",
+  "privacyCenterLocationBody": "Lokasi perangkat Anda hanya digunakan untuk menghitung waktu salat, menemukan arah Kiblat, dan mencari masjid/restoran halal terdekat. Tidak pernah disimpan atau dibagikan dengan layanan lain mana pun.",
+  "privacyCenterNoAccountsTitle": "Tanpa akun, iklan, atau pelacakan",
+  "privacyCenterNoAccountsBody": "Aplikasi ini tidak memerlukan akun, tidak menampilkan iklan, dan tidak menggunakan SDK analitik atau pelacakan apa pun.",
+  "privacyCenterExportButton": "Ekspor Data Saya",
+  "privacyCenterExportSuccessSnackbar": "Data Anda telah disiapkan untuk diekspor",
+  "privacyCenterDeleteButton": "Hapus Data Saya",
+  "privacyCenterDeleteConfirmTitle": "Hapus semua data lokal?",
+  "privacyCenterDeleteConfirmBody": "Ini akan menghapus permanen semua progres, favorit, penanda, doa, pencapaian, dan pengaturan Anda dari perangkat ini. Tindakan ini tidak dapat dibatalkan.",
+  "privacyCenterDeleteConfirmButton": "Hapus Semua",
+  "privacyCenterDeleteDoneSnackbar": "Semua data lokal telah dihapus",
+  "privacyCenterViewPolicy": "Lihat Kebijakan Privasi Lengkap",
+  "homeRamadanBannerTitle": "Hari {day} Ramadan",
+  "@homeRamadanBannerTitle": {
+    "placeholders": {
+      "day": {
+        "type": "int"
+      }
+    }
+  },
+  "homeRamadanBannerSubtitle": "Ketuk untuk kompanion Ramadan Anda",
+  "ramadanLast10NightsTitle": "10 Malam Terakhir",
+  "ramadanLast10NightsBody": "Malam-malam terakhir Ramadan ini adalah yang paling berkah — tingkatkan ibadah, bacaan Al-Qur'an, dan doa Anda.",
+  "ramadanPossibleLaylatAlQadr": "Malam ini mungkin adalah Lailatul Qadar",
+  "commonEditTooltip": "Ubah",
+  "commonDeleteTooltip": "Hapus",
+  "commonSettingsTooltip": "Pengaturan",
+  "commonDecreaseTooltip": "Kurangi",
+  "commonIncreaseTooltip": "Tambah",
+  "commonShareTooltip": "Bagikan",
+  "commonRefreshTooltip": "Perbarui",
+  "homeNextPrayerCardLabel": "Waktu salat berikutnya",
+  "homeWeeklyInsightsCardLabel": "Statistik mingguan",
+  "settingsTajweedColoring": "Pewarnaan Tajweed",
+  "settingsTajweedColoringSubtitle": "Warnai teks Quran berdasarkan aturan Tajweed",
+  "settingsBackupRestore": "Cadangan & Pemulihan",
+  "settingsExportBackup": "Ekspor cadangan",
+  "settingsExportBackupSubtitle": "Simpan progres dan pengaturan Anda ke berkas",
+  "settingsImportBackup": "Impor cadangan",
+  "settingsImportBackupSubtitle": "Pulihkan data dari berkas yang tersimpan sebelumnya",
+  "settingsImportSuccess": "Cadangan berhasil diimpor! Silakan restart app.",
+  "settingsImportError": "Gagal mengimpor.",
+  "tajweedLegendTitle": "Aturan Tajweed",
+  "tajweedLegendIntro": "Kode warna untuk aturan tajwid bacaan Al-Qur'an:",
+  "tajweedQalqalahLabel": "Qalqalah (Pantulan)",
+  "tajweedGhunnahLabel": "Ghunnah (Dengung)",
+  "tajweedIkhfaLabel": "Ikhfa (Penyamaran)",
+  "tajweedIdghamGhunnahLabel": "Idgham dengan Ghunnah",
+  "tajweedIdghamNoGhunnahLabel": "Idgham tanpa Ghunnah",
+  "tajweedIqlabLabel": "Iqlab (Pergantian)",
+  "tajweedLegendClose": "Tutup",
+  "radioTitle": "Radio Islam",
+  "radioSubtitle": "Dengarkan Al-Quran & ceramah secara langsung",
+  "radioAll": "Semua",
+  "radioNowPlaying": "Sedang diputar",
+  "radioFavorites": "Favorit",
+  "radioNoFavorites": "Belum ada stasiun favorit",
+  "radioNoStations": "Tidak ada stasiun di kategori ini",
+  "radioAddFavorite": "Tambahkan ke favorit",
+  "radioRemoveFavorite": "Hapus dari favorit",
+  "radioSleepTimer": "Timer tidur",
+  "radioSleepTimerSubtitle": "Secara otomatis menghentikan radio setelah waktu yang ditentukan",
+  "radioSleepTimerCancel": "Batalkan timer",
+  "radioMinutes": "mnt",
+  "radioSleepTimerActive": "Berhenti dalam {minutes} mnt",
+  "radioOfficial": "Resmi",
+  "radioStreamError": "Tidak dapat terhubung ke stasiun. Periksa koneksi Anda.",
+  "radioSearchTooltip": "Cari",
+  "radioSearchHint": "Cari stasiun...",
+  "radioSearchNoResults": "Tidak ada hasil ditemukan",
+  "@radioSleepTimerActive": {
+    "placeholders": {
+      "minutes": {
+        "type": "int"
+      }
+    }
+  },
+  "authWelcomeBack": "Selamat datang kembali",
+  "authEmail": "Email",
+  "authPassword": "Kata sandi",
+  "authSignIn": "Masuk",
+  "authSignOut": "Keluar",
+  "authCreateAccount": "Buat Akun",
+  "authRegister": "Daftar",
+  "authForgotPassword": "Lupa kata sandi?",
+  "authSendResetEmail": "Kirim Email Reset",
+  "authResetPasswordSubtitle": "Masukkan email Anda dan kami akan mengirim tautan reset",
+  "authResetEmailSent": "Email Terkirim!",
+  "authResetEmailSentSubtitle": "Periksa email Anda untuk tautan reset kata sandi",
+  "authBackToLogin": "Kembali ke Login",
+  "authOrContinueWith": "atau lanjutkan dengan",
+  "authSignInWithGoogle": "Masuk dengan Google",
+  "authSignInWithApple": "Masuk dengan Apple",
+  "authNoAccount": "Belum punya akun?",
+  "authSkipForNow": "Lewati — lanjutkan tanpa akun",
+  "authDisplayName": "Nama tampilan",
+  "authNameRequired": "Nama diperlukan",
+  "authInvalidEmail": "Alamat email tidak valid",
+  "authPasswordTooShort": "Kata sandi minimal 6 karakter",
+  "authAccount": "Akun",
+  "authCloudSync": "Sinkronisasi Cloud",
+  "authCloudSyncEnabled": "Sinkronisasi cloud aktif",
+  "authSyncNow": "Sinkronkan Sekarang",
+  "authSyncing": "Menyinkronkan...",
+  "authLastSynced": "Terakhir disinkronkan: {time}",
+  "authNeverSynced": "Belum pernah disinkronkan",
+  "authWhatsSynced": "Apa yang disinkronkan?",
+  "authSyncQuran": "Progres Quran",
+  "authSyncKhatma": "Rencana Khatma",
+  "authSyncFavorites": "Favorit dan bookmark",
+  "authSyncBookmarks": "Bookmark",
+  "authSyncTasbeeh": "Hitungan Tasbih",
+  "authSyncAzkar": "Progres Dzikir",
+  "authSyncPrayers": "Log shalat",
+  "authSyncAchievements": "Pencapaian dan lencana",
+  "authSyncSettings": "Pengaturan",
+  "@authLastSynced": {
+    "placeholders": {
+      "time": {
+        "type": "String"
+      }
+    }
+  },
+  "authSignOutTitle": "Keluar?",
+  "authSignOutMessage": "Data Anda telah disimpan di cloud.",
+  "authDeleteAccountTitle": "Hapus Akun",
+  "authDeleteAccountSubtitle": "Hapus akun Anda dan semua data cloud secara permanen",
+  "authDeleteAccountConfirmTitle": "Hapus akun?",
+  "authDeleteAccountConfirmMessage": "Ini akan menghapus akun Anda dan semua data yang disinkronkan dari cloud secara permanen. Data lokal Anda di perangkat ini akan tetap ada. Tindakan ini tidak dapat dibatalkan.",
+  "authDeleteEverything": "Hapus Semua",
+  "authDeleteAccountFailed": "Gagal menghapus akun: {error}",
+  "@authDeleteAccountFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "authSyncSuccess": "Semua data berhasil disinkronkan!",
+  "authSyncFailed": "Sinkronisasi gagal: {error}",
+  "@authSyncFailed": {
+    "placeholders": {
+      "error": {
+        "type": "String"
+      }
+    }
+  },
+  "radioLoadingStations": "Memuat stasiun Islami terverifikasi…",
+  "homePrayersToday": "{done}/{total} salat hari ini",
+  "@homePrayersToday": {
+    "placeholders": {
+      "done": {
+        "type": "int"
+      },
+      "total": {
+        "type": "int"
+      }
+    }
+  },
+  "khatmaCalendarTitle": "Kalender Khatam",
+  "khatmaCalendarLegendMet": "Target tercapai",
+  "khatmaCalendarLegendMissed": "Target terlewat",
+  "khatmaCalendarLegendFuture": "Mendatang",
+  "khatmaCalendarTooltip": "Kalender bacaan",
+  "authSyncNoAccount": "Anda belum masuk — masuk terlebih dahulu untuk menyinkronkan data Anda",
+  "toolPrecisionQiblaTitle": "Kiblat Presisi (Pro)",
+  "toolPrecisionQiblaSubtitle": "Kompas utara sejati model geomagnetik",
+  "authSkipConfirmTitle": "Lanjutkan tanpa akun?",
+  "authSkipConfirmBody": "Anda tidak akan masuk, dan progres Anda tidak akan disinkronkan antar perangkat. Anda dapat masuk kapan saja nanti dari Pengaturan.",
+  "authSkipConfirmAction": "Lanjutkan tanpa akun"
+}
