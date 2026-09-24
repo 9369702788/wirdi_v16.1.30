@@ -1,62 +1,30 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import '../../core/services/auth_service.dart';
 import '../../core/services/sync_service.dart';
 import '../../core/theme/app_theme.dart';
 import '../../l10n/generated/app_localizations.dart';
-import 'register_screen.dart';
-import 'forgot_password_screen.dart';
-
-final RegExp _kEmailRegex = RegExp(r'^[\w\.\-\+]+@[\w\-]+(\.[\w\-]+)*\.[a-zA-Z]{2,}$');
-
-/// Sentinel thrown when the email/password Form fails client-side
-/// validation inside a [_go]-wrapped action -- see [_go]'s doc comment
-/// for why this exists and what bug it closes.
-class _ValidationFailedSilently implements Exception {}
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
   @override State<LoginScreen> createState() => _LoginScreenState();
 }
-class _LoginScreenState extends State<LoginScreen> {
-  final _formKey = GlobalKey<FormState>();
-  final _emailCtrl = TextEditingController();
-  final _passCtrl = TextEditingController();
-  bool _loading = false, _obscure = true;
-  String? _error;
-  @override void dispose() { _emailCtrl.dispose(); _passCtrl.dispose(); super.dispose(); }
 
-  /// FIX: [_go] used to navigate to /home unconditionally as soon as
-  /// [fn] completed WITHOUT throwing -- but the email/password sign-in
-  /// button's [fn] used `if (!_formKey.currentState!.validate()) return;`
-  /// to bail out on an invalid form. A plain `return` completes the
-  /// Future normally (no exception), which [_go] could not distinguish
-  /// from "sign-in actually succeeded" -- so it navigated straight to
-  /// /home with NO account signed in at all. That is the real
-  /// mechanism behind "any email and any password gets in": the app
-  /// was never actually validating the credentials against Firebase in
-  /// that case, it was just always letting you through on a failed
-  /// client-side form check. [_ValidationFailedSilently] is a sentinel
-  /// exception so a failed form validation is now treated exactly like
-  /// any other failure -- it stops here and does not navigate -- while
-  /// still not showing a redundant top-level error banner, since the
-  /// per-field red messages the Form itself renders already explain
-  /// what's wrong.
+class _LoginScreenState extends State<LoginScreen> {
+  bool _loading = false;
+  String? _error;
+
   Future<void> _go(Future<void> Function() fn) async {
     setState(() { _loading = true; _error = null; });
-    try { await fn(); if (mounted) Navigator.pushReplacementNamed(context, '/home'); }
-    on _ValidationFailedSilently { /* per-field red errors are already visible; do not navigate */ }
-    on FirebaseAuthException catch (e) { setState(() { _error = _msg(e.code); }); }
-    catch (e) { setState(() { _error = e.toString(); }); }
-    finally { if (mounted) setState(() => _loading = false); }
+    try { 
+      await fn(); 
+      if (mounted) Navigator.pushReplacementNamed(context, '/home'); 
+    } catch (e) { 
+      setState(() { _error = e.toString(); }); 
+    } finally { 
+      if (mounted) setState(() => _loading = false); 
+    }
   }
 
-  /// FIX: "Skip for now" used to navigate straight to /home with zero
-  /// confirmation or feedback -- users kept mistaking it for a successful
-  /// sign-in with whatever they had typed (especially since it sits right
-  /// below the Sign In button), reporting it as "any email/password gets
-  /// accepted". It never touched Firebase Auth at all; this makes that
-  /// explicit and impossible to trigger by accident.
   Future<void> _skip() async {
     final l = AppLocalizations.of(context);
     final confirmed = await showDialog<bool>(
@@ -75,83 +43,80 @@ class _LoginScreenState extends State<LoginScreen> {
     }
   }
 
-  /// FIX: this used to fall back to a totally generic "Sign-in failed.
-  /// Please try again." for ANY FirebaseAuthException code not in the
-  /// map -- which completely hid what was actually going wrong. Most
-  /// importantly, Firebase Auth's client SDKs have (since ~2023)
-  /// consolidated the old 'wrong-password' and 'user-not-found' codes
-  /// into a single 'invalid-credential' code for both cases, to avoid
-  /// letting an attacker use sign-in errors to discover which emails
-  /// have an account (a legitimate security hardening on Firebase's
-  /// side) -- but this app's error map never had 'invalid-credential'
-  /// in it, so a user with a genuinely correct-looking email/password
-  /// combination could see this exact generic message with zero
-  /// indication of what Firebase actually said. Added the new code
-  /// plus a few other common ones, AND the fallback for anything still
-  /// unmapped now includes the raw code so a future unmapped error is
-  /// never silently invisible again.
-  String _msg(String code) {
-    const m = {
-      'user-not-found': 'No account with this email.',
-      'wrong-password': 'Incorrect password.',
-      'invalid-credential': 'Incorrect email or password.',
-      'invalid-email': 'Invalid email.',
-      'too-many-requests': 'Too many attempts. Try later.',
-      'user-disabled': 'This account has been disabled.',
-      'network-request-failed': 'Network error. Please check your connection and try again.',
-    };
-    return m[code] ?? 'Sign-in failed ($code). Please try again.';
-  }
-
   @override
   Widget build(BuildContext context) {
     final l = AppLocalizations.of(context);
-    return Scaffold(body: Container(
-      decoration: BoxDecoration(gradient: LinearGradient(colors: [AppColors.primaryEmerald, Color(0xFF064E3B)], begin: Alignment.topCenter, end: Alignment.bottomCenter)),
-      child: SafeArea(child: SingleChildScrollView(padding: EdgeInsets.fromLTRB(28, 28, 28, 28 + MediaQuery.of(context).padding.bottom), child: Column(crossAxisAlignment: CrossAxisAlignment.stretch, children: [
-        const SizedBox(height: 32),
-        Icon(Icons.auto_stories_rounded, size: 64, color: AppColors.goldAccent),
-        const SizedBox(height: 12),
-        Text(l.appTitle, textAlign: TextAlign.center, style: const TextStyle(fontSize: 32, fontWeight: FontWeight.bold, color: Colors.white)),
-        const SizedBox(height: 4),
-        Text(l.authWelcomeBack, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white70, fontSize: 15)),
-        const SizedBox(height: 36),
-        if (_error != null) Container(margin: const EdgeInsets.only(bottom: 16), padding: const EdgeInsets.all(12),
-          decoration: BoxDecoration(color: Colors.red.shade900.withValues(alpha: 0.6), borderRadius: BorderRadius.circular(12)),
-          child: Text(_error!, style: const TextStyle(color: Colors.white, fontSize: 13))),
-        
-        const SizedBox(height: 8),
-        
-        const SizedBox(height: 20),
-        
-        const SizedBox(height: 20),
-        _Soc(label: l.authSignInWithGoogle, icon: Icons.g_mobiledata_rounded, onPressed: _loading ? null : () => _go(() async { final c = await AuthService.instance.signInWithGoogle(); if (c==null) throw _ValidationFailedSilently(); await SyncService.instance.syncOnSignIn(); })),
-        // Apple Sign-In temporarily removed from the UI per explicit request.
-        // AuthService.instance.signInWithApple() is left intact for a quick re-add later.
-        const SizedBox(height: 28),
-        
-        TextButton(onPressed: _skip, child: Text(l.authSkipForNow, style: const TextStyle(color: Colors.white38, fontSize: 13))),
-      ])))));
+    return Scaffold(
+      body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [AppColors.primaryEmerald, const Color(0xFF064E3B)],
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+          ),
+        ),
+        child: SafeArea(
+          child: Center(
+            child: SingleChildScrollView(
+              padding: const EdgeInsets.symmetric(horizontal: 32),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Icon(Icons.auto_stories_rounded, size: 80, color: AppColors.goldAccent),
+                  const SizedBox(height: 24),
+                  Text(l.appTitle, textAlign: TextAlign.center, style: const TextStyle(fontSize: 36, fontWeight: FontWeight.bold, color: Colors.white)),
+                  const SizedBox(height: 8),
+                  Text(l.authWelcomeBack, textAlign: TextAlign.center, style: const TextStyle(color: Colors.white70, fontSize: 16)),
+                  const SizedBox(height: 48),
+                  if (_error != null)
+                    Container(
+                      margin: const EdgeInsets.only(bottom: 24),
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(color: Colors.red.shade900.withOpacity(0.6), borderRadius: BorderRadius.circular(12)),
+                      child: Text(_error!, style: const TextStyle(color: Colors.white, fontSize: 13)),
+                    ),
+                  _SocialButton(
+                    label: l.authSignInWithGoogle,
+                    icon: Icons.g_mobiledata_rounded,
+                    onPressed: _loading ? null : () => _go(() async {
+                      final user = await AuthService.instance.signInWithGoogle();
+                      if (user != null) await SyncService.instance.syncOnSignIn();
+                    }),
+                  ),
+                  const SizedBox(height: 24),
+                  TextButton(
+                    onPressed: _loading ? null : _skip,
+                    child: Text(l.authSkipForNow, style: const TextStyle(color: Colors.white54, fontSize: 14)),
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ),
+      ),
+    );
   }
 }
 
-class _F extends StatelessWidget {
-  final TextEditingController ctrl; final String label; final IconData icon;
-  final TextInputType? keyboardType; final bool obscure; final Widget? suffixIcon; final String? Function(String?)? validator;
-  const _F({required this.ctrl, required this.label, required this.icon, this.keyboardType, this.obscure=false, this.suffixIcon, this.validator});
-  @override Widget build(BuildContext context) => TextFormField(controller: ctrl, keyboardType: keyboardType, obscureText: obscure, style: const TextStyle(color: Colors.white),
-    decoration: InputDecoration(labelText: label, labelStyle: const TextStyle(color: Colors.white70), prefixIcon: Icon(icon, color: Colors.white70), suffixIcon: suffixIcon,
-      enabledBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: Colors.white30)),
-      focusedBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: BorderSide(color: AppColors.goldAccent)),
-      errorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: Colors.red)),
-      focusedErrorBorder: OutlineInputBorder(borderRadius: BorderRadius.circular(12), borderSide: const BorderSide(color: Colors.red)),
-      errorStyle: const TextStyle(color: Colors.redAccent)), validator: validator);
-}
+class _SocialButton extends StatelessWidget {
+  final String label;
+  final IconData icon;
+  final VoidCallback? onPressed;
+  const _SocialButton({required this.label, required this.icon, this.onPressed});
 
-class _Soc extends StatelessWidget {
-  final String label; final IconData icon; final VoidCallback? onPressed;
-  const _Soc({required this.label, required this.icon, this.onPressed});
-  @override Widget build(BuildContext context) => OutlinedButton.icon(
-    style: OutlinedButton.styleFrom(foregroundColor: Colors.white, side: const BorderSide(color: Colors.white30), padding: const EdgeInsets.symmetric(vertical: 14), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14))),
-    onPressed: onPressed, icon: Icon(icon, size: 22), label: Text(label, style: const TextStyle(fontSize: 15)));
+  @override
+  Widget build(BuildContext context) {
+    return OutlinedButton.icon(
+      style: OutlinedButton.styleFrom(
+        foregroundColor: Colors.white,
+        side: const BorderSide(color: Colors.white30),
+        padding: const EdgeInsets.symmetric(vertical: 16),
+        shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      ),
+      onPressed: onPressed,
+      icon: Icon(icon, size: 28),
+      label: Text(label, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.w600)),
+    );
+  }
 }

@@ -50,7 +50,7 @@ class _AzkarScreenState extends State<AzkarScreen> with SingleTickerProviderStat
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    return Scaffold(backgroundColor: Colors.transparent, 
+    return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.white,
         flexibleSpace: _MosaicBg(col: 2, row: 1, opacity: 0.4),
@@ -80,7 +80,7 @@ class _AzkarScreenState extends State<AzkarScreen> with SingleTickerProviderStat
           ),
         ],
       ),
-      body: Stack(children: [SizedBox.expand(child: Image.asset("assets/images/wirdi_azkar_bg.webp", fit: BoxFit.cover)), Stack(
+      body: Stack(
         children: [
           Positioned(
             top: 0,
@@ -303,7 +303,7 @@ class _AzkarDetailsScreenState extends State<AzkarDetailsScreen> {
         ? widget.category.items.where((i) => !_completedToday.contains(i.uid)).toList()
         : widget.category.items;
 
-    return Scaffold(backgroundColor: Colors.transparent, 
+    return Scaffold(
       appBar: AppBar(
         title: Text(widget.category.category),
         centerTitle: true,
@@ -417,9 +417,9 @@ class _AzkarFavoritesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final l10n = AppLocalizations.of(context);
-    return Scaffold(backgroundColor: Colors.transparent, 
+    return Scaffold(
       appBar: AppBar(title: Text(l10n.azkarFavoritesTitle), centerTitle: true),
-      body: Stack(children: [SizedBox.expand(child: Image.asset("assets/images/wirdi_azkar_bg.webp", fit: BoxFit.cover)), FutureBuilder<Set<String>>(
+      body: FutureBuilder<Set<String>>(
         future: UserProgressService.favoriteAzkar(),
         builder: (context, snapshot) {
           if (!snapshot.hasData) return const Center(child: CircularProgressIndicator());
