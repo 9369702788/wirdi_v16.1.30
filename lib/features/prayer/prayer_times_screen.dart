@@ -20,7 +20,6 @@ import '../../core/services/weather_service.dart';
 import '../../core/services/sunrise_sunset_calculator.dart';
 import 'package:geolocator/geolocator.dart';
 import 'prayer_chart_screen.dart';
-import '../qibla/qibla_screen.dart';
 
 class PrayerTimesScreen extends StatefulWidget {
   const PrayerTimesScreen({super.key});
@@ -362,11 +361,6 @@ class _PrayerTimesScreenState extends State<PrayerTimesScreen> {
             icon: const Icon(Icons.tune),
           ),
           IconButton(onPressed: _load, icon: const Icon(Icons.refresh), tooltip: l10n.prayerRefresh),
-          IconButton(
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const QiblaScreen())),
-            icon: const Icon(Icons.explore_outlined),
-            tooltip: isAr ? 'القبلة' : 'Qibla',
-          ),
           PopupMenuButton<String>(
             tooltip: l10n.navMore,
             icon: const Icon(Icons.more_vert),

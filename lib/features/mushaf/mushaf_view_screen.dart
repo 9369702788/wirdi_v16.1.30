@@ -64,7 +64,6 @@ class _MushafViewScreenState extends State<MushafViewScreen> {
   @override
   void initState() {
     super.initState();
-    WakelockPlus.enable();
     _future = _loadAll();
     _currentPageIndex = (widget.initialPage ?? 1) - 1;
     _pageController = PageController(initialPage: (widget.initialPage ?? 1) - 1);
@@ -445,7 +444,6 @@ class _MushafPageViewState extends State<_MushafPageView> {
   @override
   void initState() {
     super.initState();
-    WakelockPlus.enable();
     quranAudio.addListener(_onAudioChanged);
     WidgetsBinding.instance.addPostFrameCallback((_) => _scrollToPlayingAyahIfNeeded());
   }

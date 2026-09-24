@@ -1,4 +1,3 @@
-import 'package:wakelock_plus/wakelock_plus.dart';
 import 'dart:async';
 
 import 'dart:ui' as ui;
@@ -50,7 +49,6 @@ class _QuranScreenState extends State<QuranScreen> with SingleTickerProviderStat
   @override
   void initState() {
     super.initState();
-    WakelockPlus.enable();
     _tabController = TabController(length: 4, vsync: this);
     _future = QuranRepository.load();
   }
@@ -349,7 +347,6 @@ class _AyahSearchTabState extends State<_AyahSearchTab> {
   @override
   void initState() {
     super.initState();
-    WakelockPlus.enable();
     _debouncedQuery = widget.controller.text.trim();
   }
 
@@ -552,7 +549,6 @@ class _SurahReaderScreenState extends State<SurahReaderScreen> {
   @override
   void initState() {
     super.initState();
-    WakelockPlus.enable();
 
     // _surahAyahOffset removed (dead code from a previous refactor)
 
@@ -1093,7 +1089,7 @@ class _SurahReaderScreenState extends State<SurahReaderScreen> {
                       }
                     }
                   : null,
-              icon: const Icon(Icons.skip_previous_rounded), 
+              icon: const Icon(Icons.skip_previous_rounded),
             ),
             IconButton(
               tooltip: languageCode == 'ar' ? 'السورة التالية' : 'Next surah',
@@ -1105,7 +1101,7 @@ class _SurahReaderScreenState extends State<SurahReaderScreen> {
                       }
                     }
                   : null,
-              icon: const Icon(Icons.skip_previous_rounded),
+              icon: const Icon(Icons.skip_next_rounded),
             ),
             _DownloadButton(surah: surah, allSurahs: widget.allSurahs),
             IconButton(
@@ -1167,7 +1163,7 @@ class _SurahReaderScreenState extends State<SurahReaderScreen> {
       bottomNavigationBar: const QuranPlaybackBar(),
       body: ListView.builder(
         controller: _scrollController,
-        cacheExtent: 1000,
+        cacheExtent: 1000000,
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 100),
         itemCount: surah.ayahs.length + 1,
         itemBuilder: (context, index) {
@@ -1387,7 +1383,6 @@ class _DownloadButtonState extends State<_DownloadButton> {
   @override
   void initState() {
     super.initState();
-    WakelockPlus.enable();
     _checkStatus();
   }
 
@@ -1505,7 +1500,6 @@ class _MosaicBgState extends State<_MosaicBg> {
   @override
   void initState() {
     super.initState();
-    WakelockPlus.enable();
     if (_cachedImage != null) {
       _image = _cachedImage;
     } else {
