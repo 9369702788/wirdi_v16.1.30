@@ -173,14 +173,14 @@ class RadioService extends ChangeNotifier {
   /// already uses across whole SOURCES -- multiplies the real, verified
   /// catalog size using only the existing trusted mechanism.
   // Generic tags ('islam', 'islamic') were dropped in v1.54: they returned unmoderated, non-Quran content.
-  static const _radioBrowserTags = ['quran', 'coran', 'tilawah', 'quran radio', 'islam', 'islamic', 'sunnah', 'hadith', 'nasheed', 'dawah'];
+  static const _radioBrowserTags = ['quran', 'coran', 'tilawah', 'quran radio', 'islam', 'islamic', 'sunnah', 'hadith', 'nasheed', 'dawah', 'sunna', 'تلاوة', 'قرآن'];
 
   Future<List<RadioStation>> _fetchRadioBrowser() async {
     final merged = <String, RadioStation>{};
     for (final tag in _radioBrowserTags) {
       try {
         final resp = await http.get(
-          Uri.parse('https://de1.api.radio-browser.info/json/stations/bytag/${Uri.encodeComponent(tag)}?limit=100&hidebroken=true'),
+          Uri.parse('https://de1.api.radio-browser.info/json/stations/bytag/${Uri.encodeComponent(tag)}?limit=500&hidebroken=true'),
           headers: {'User-Agent': 'WirdiApp/1.52 (Islamic companion app)'},
         ).timeout(const Duration(seconds: 10));
         if (resp.statusCode != 200) continue;

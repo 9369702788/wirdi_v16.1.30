@@ -172,7 +172,7 @@ class QuranAudioService extends ChangeNotifier {
         if (identical(player, _active)) {
           position = p;
           final now = DateTime.now();
-          if (_lastPosNotify == null || now.difference(_lastPosNotify!) > const Duration(milliseconds: 200)) {
+          if (_lastPosNotify == null || now.difference(_lastPosNotify!) > const Duration(milliseconds: 100)) {
             _lastPosNotify = now;
             notifyListeners();
           }
@@ -415,14 +415,13 @@ class QuranAudioService extends ChangeNotifier {
     _prematureRetries = 0;
     _stallRetries = 0;
     position = Duration.zero;
-    // The preloaded player already reported its own length while it was standby.
     duration = _playerDuration[_active] ?? Duration.zero;
     isBuffering = false;
-    notifyListeners();
 
     try {
       await _active.setPlaybackRate(playbackRate);
       await _active.resume();
+      notifyListeners();
       _armStallWatchdog(nextAyah, _playToken);
     } catch (e, st) {
       AppLogger.error('Resuming preloaded ayah failed, falling back to fresh fetch', error: e, stackTrace: st);

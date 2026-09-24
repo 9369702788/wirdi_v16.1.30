@@ -119,37 +119,17 @@ class _LoginScreenState extends State<LoginScreen> {
         if (_error != null) Container(margin: const EdgeInsets.only(bottom: 16), padding: const EdgeInsets.all(12),
           decoration: BoxDecoration(color: Colors.red.shade900.withValues(alpha: 0.6), borderRadius: BorderRadius.circular(12)),
           child: Text(_error!, style: const TextStyle(color: Colors.white, fontSize: 13))),
-        Form(key: _formKey, autovalidateMode: AutovalidateMode.onUserInteraction, child: Column(children: [
-          _F(ctrl: _emailCtrl, label: l.authEmail, icon: Icons.email_outlined, keyboardType: TextInputType.emailAddress, validator: (v) => (v==null||!_kEmailRegex.hasMatch(v.trim())) ? l.authInvalidEmail : null),
-          const SizedBox(height: 14),
-          _F(ctrl: _passCtrl, label: l.authPassword, icon: Icons.lock_outline, obscure: _obscure,
-            suffixIcon: IconButton(icon: Icon(_obscure ? Icons.visibility_outlined : Icons.visibility_off_outlined, color: Colors.white70), onPressed: () => setState(() => _obscure = !_obscure)),
-            validator: (v) => (v==null||v.length<6) ? l.authPasswordTooShort : null),
-          const SizedBox(height: 8),
-          Align(alignment: AlignmentDirectional.centerEnd, child: TextButton(
-            onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const ForgotPasswordScreen())),
-            child: Text(l.authForgotPassword, style: TextStyle(color: AppColors.goldAccent)))),
-        ])),
+        
         const SizedBox(height: 8),
-        FilledButton(
-          style: FilledButton.styleFrom(backgroundColor: AppColors.goldAccent, foregroundColor: Colors.white, padding: const EdgeInsets.symmetric(vertical: 16), shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(14))),
-          onPressed: _loading ? null : () => _go(() async {
-            if (!_formKey.currentState!.validate()) throw _ValidationFailedSilently();
-            await AuthService.instance.signInWithEmail(_emailCtrl.text.trim(), _passCtrl.text);
-            await SyncService.instance.syncOnSignIn();
-          }),
-          child: _loading ? const SizedBox(width: 22, height: 22, child: CircularProgressIndicator(strokeWidth: 2, color: Colors.white)) : Text(l.authSignIn, style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold))),
+        
         const SizedBox(height: 20),
-        Row(children: [const Expanded(child: Divider(color: Colors.white30)), Padding(padding: const EdgeInsets.symmetric(horizontal: 12), child: Text(l.authOrContinueWith, style: const TextStyle(color: Colors.white54, fontSize: 12))), const Expanded(child: Divider(color: Colors.white30))]),
+        
         const SizedBox(height: 20),
         _Soc(label: l.authSignInWithGoogle, icon: Icons.g_mobiledata_rounded, onPressed: _loading ? null : () => _go(() async { final c = await AuthService.instance.signInWithGoogle(); if (c==null) throw _ValidationFailedSilently(); await SyncService.instance.syncOnSignIn(); })),
         // Apple Sign-In temporarily removed from the UI per explicit request.
         // AuthService.instance.signInWithApple() is left intact for a quick re-add later.
         const SizedBox(height: 28),
-        Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Text(l.authNoAccount, style: const TextStyle(color: Colors.white70)),
-          TextButton(onPressed: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const RegisterScreen())), child: Text(l.authRegister, style: TextStyle(color: AppColors.goldAccent, fontWeight: FontWeight.bold))),
-        ]),
+        
         TextButton(onPressed: _skip, child: Text(l.authSkipForNow, style: const TextStyle(color: Colors.white38, fontSize: 13))),
       ])))));
   }
