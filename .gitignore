@@ -1,0 +1,34 @@
+# Flutter/Dart
+.dart_tool/
+.packages
+build/
+.flutter-plugins
+.flutter-plugins-dependencies
+.pub-cache/
+.pub/
+
+# Android/iOS (generated fresh by CI on every build)
+android/
+ios/
+*.keystore
+!debug.keystore
+*.jks
+key.properties
+
+# Secrets / env
+.env
+*.env
+
+# IDE / OS
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
+
+# NOTE: google-services.json is intentionally NOT ignored -- the CI build
+# (.github/workflows/build_apk.yml) copies it into the generated android/
+# project on every run. It only contains client-side Firebase config
+# (safe to expose per Firebase's own guidance) -- real protection comes
+# from Firestore security rules + SHA-1 fingerprint restriction, see
+# FIREBASE_SETUP.md.
