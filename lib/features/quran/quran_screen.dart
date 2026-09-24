@@ -1,3 +1,4 @@
+import 'package:wakelock_plus/wakelock_plus.dart';
 import 'dart:async';
 
 import 'dart:ui' as ui;
@@ -49,12 +50,14 @@ class _QuranScreenState extends State<QuranScreen> with SingleTickerProviderStat
   @override
   void initState() {
     super.initState();
+    WakelockPlus.enable();
     _tabController = TabController(length: 4, vsync: this);
     _future = QuranRepository.load();
   }
 
   @override
   void dispose() {
+    WakelockPlus.disable();
     _tabController.dispose();
     _surahSearchController.dispose();
     _ayahSearchController.dispose();
@@ -347,11 +350,13 @@ class _AyahSearchTabState extends State<_AyahSearchTab> {
   @override
   void initState() {
     super.initState();
+    WakelockPlus.enable();
     _debouncedQuery = widget.controller.text.trim();
   }
 
   @override
   void dispose() {
+    WakelockPlus.disable();
     _debounce?.cancel();
     super.dispose();
   }
@@ -549,6 +554,7 @@ class _SurahReaderScreenState extends State<SurahReaderScreen> {
   @override
   void initState() {
     super.initState();
+    WakelockPlus.enable();
 
     // _surahAyahOffset removed (dead code from a previous refactor)
 
@@ -650,6 +656,7 @@ class _SurahReaderScreenState extends State<SurahReaderScreen> {
 
   @override
   void dispose() {
+    WakelockPlus.disable();
     quranAudio.removeListener(_onAudioChanged);
     _scrollController.removeListener(_scheduleVisibleAyahUpdate);
     _scrollController.dispose();
@@ -1089,7 +1096,7 @@ class _SurahReaderScreenState extends State<SurahReaderScreen> {
                       }
                     }
                   : null,
-              icon: const Icon(Icons.skip_previous_rounded),
+              icon: const Icon(Icons.skip_previous_rounded), 
             ),
             IconButton(
               tooltip: languageCode == 'ar' ? 'السورة التالية' : 'Next surah',
@@ -1101,7 +1108,7 @@ class _SurahReaderScreenState extends State<SurahReaderScreen> {
                       }
                     }
                   : null,
-              icon: const Icon(Icons.skip_next_rounded),
+              icon: const Icon(Icons.skip_previous_rounded),
             ),
             _DownloadButton(surah: surah, allSurahs: widget.allSurahs),
             IconButton(
@@ -1163,7 +1170,7 @@ class _SurahReaderScreenState extends State<SurahReaderScreen> {
       bottomNavigationBar: const QuranPlaybackBar(),
       body: ListView.builder(
         controller: _scrollController,
-        cacheExtent: 1000000,
+        cacheExtent: 1000,
         padding: const EdgeInsets.fromLTRB(16, 16, 16, 100),
         itemCount: surah.ayahs.length + 1,
         itemBuilder: (context, index) {
@@ -1383,6 +1390,7 @@ class _DownloadButtonState extends State<_DownloadButton> {
   @override
   void initState() {
     super.initState();
+    WakelockPlus.enable();
     _checkStatus();
   }
 
@@ -1500,6 +1508,7 @@ class _MosaicBgState extends State<_MosaicBg> {
   @override
   void initState() {
     super.initState();
+    WakelockPlus.enable();
     if (_cachedImage != null) {
       _image = _cachedImage;
     } else {

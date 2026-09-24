@@ -39,10 +39,11 @@ class QuranAudioService extends ChangeNotifier {
   QuranAudioService._();
   static final QuranAudioService instance = QuranAudioService._();
 
-  final AudioPlayer _playerA = AudioPlayer();
-  final AudioPlayer _playerB = AudioPlayer();
+  final AudioPlayer _playerA = AudioPlayer()..setPlayerMode(PlayerMode.lowLatency);
+  final AudioPlayer _playerB = AudioPlayer()..setPlayerMode(PlayerMode.lowLatency);
   late AudioPlayer _active;
   late AudioPlayer _standby;
+  DateTime? _lastPosNotify;
   bool _initialized = false;
 
   int? _surahNumber;
@@ -170,7 +171,11 @@ class QuranAudioService extends ChangeNotifier {
       player.onPositionChanged.listen((p) {
         if (identical(player, _active)) {
           position = p;
-          notifyListeners();
+          final now = DateTime.now();
+          if (_lastPosNotify == null || now.difference(_lastPosNotify!) > const Duration(milliseconds: 100)) {
+            _lastPosNotify = now;
+            notifyListeners();
+          }
         }
       });
       player.onDurationChanged.listen((d) => _onPlayerDuration(player, d));
@@ -410,14 +415,13 @@ class QuranAudioService extends ChangeNotifier {
     _prematureRetries = 0;
     _stallRetries = 0;
     position = Duration.zero;
-    // The preloaded player already reported its own length while it was standby.
     duration = _playerDuration[_active] ?? Duration.zero;
     isBuffering = false;
-    notifyListeners();
 
     try {
       await _active.setPlaybackRate(playbackRate);
-      await _active.resume();
+      unawaited(_active.resume()); 
+      notifyListeners();
       _armStallWatchdog(nextAyah, _playToken);
     } catch (e, st) {
       AppLogger.error('Resuming preloaded ayah failed, falling back to fresh fetch', error: e, stackTrace: st);

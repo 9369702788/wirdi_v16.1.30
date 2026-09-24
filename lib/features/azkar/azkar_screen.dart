@@ -82,15 +82,7 @@ class _AzkarScreenState extends State<AzkarScreen> with SingleTickerProviderStat
       ),
       body: Stack(
         children: [
-          Positioned(
-            top: 0,
-            left: 0,
-            right: 0,
-            height: MediaQuery.sizeOf(context).height * 0.45,
-            child: IgnorePointer(
-              child: _MosaicBg(col: 2, row: 1, opacity: 0.10),
-            ),
-          ),
+          const WirdiBackground(imagePath: "assets/images/wirdi_azkar_bg.webp"),
           SafeArea(bottom: true, top: false, child: FutureBuilder<List<AzkarCategoryModel>>(
             future: _future,
             builder: (context, snapshot) {
@@ -568,3 +560,4 @@ class _MosaicCellPainter extends CustomPainter {
   bool shouldRepaint(covariant _MosaicCellPainter oldDelegate) =>
       oldDelegate.image != image || oldDelegate.col != col || oldDelegate.row != row;
 }
+\n\nclass WirdiBackground extends StatelessWidget {\n  final String imagePath;\n  final double opacity;\n  const WirdiBackground({super.key, required this.imagePath, this.opacity = 1.0});\n  @override Widget build(BuildContext context) { return SizedBox.expand(child: Opacity(opacity: opacity, child: Image.asset(imagePath, fit: BoxFit.cover))); } \n}
