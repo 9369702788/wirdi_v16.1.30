@@ -43,7 +43,6 @@ class QuranAudioService extends ChangeNotifier {
   final AudioPlayer _playerB = AudioPlayer()..setPlayerMode(PlayerMode.lowLatency);
   late AudioPlayer _active;
   late AudioPlayer _standby;
-  DateTime? _lastPosNotify;
   bool _initialized = false;
 
   int? _surahNumber;
@@ -171,11 +170,7 @@ class QuranAudioService extends ChangeNotifier {
       player.onPositionChanged.listen((p) {
         if (identical(player, _active)) {
           position = p;
-          final now = DateTime.now();
-          if (_lastPosNotify == null || now.difference(_lastPosNotify!) > const Duration(milliseconds: 100)) {
-            _lastPosNotify = now;
-            notifyListeners();
-          }
+          notifyListeners();
         }
       });
       player.onDurationChanged.listen((d) => _onPlayerDuration(player, d));
