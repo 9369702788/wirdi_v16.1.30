@@ -9,12 +9,13 @@ class RadioStation {
   final bool isOfficial;
   final String? imageUrl;
   final String? stationUuid;
+  final int? clickCount;
 
   const RadioStation({
     required this.id, required this.nameAr, required this.nameEn,
     required this.streamUrl, required this.country, required this.countryCode,
     required this.category, this.isOfficial = false,
-    this.imageUrl, this.stationUuid,
+    this.imageUrl, this.stationUuid, this.clickCount,
   });
 
   /// Cleartext traffic is disabled app-wide (network_security_config), so only
@@ -104,6 +105,7 @@ class RadioStation {
       isOfficial: false,
       imageUrl: (j['favicon'] as String?)?.trim().startsWith('https://') == true ? (j['favicon'] as String).trim() : null,
       stationUuid: uuid,
+      clickCount: j['clickcount'] as int?,
     );
   }
 
