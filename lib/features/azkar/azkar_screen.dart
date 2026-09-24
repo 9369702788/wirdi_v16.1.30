@@ -53,7 +53,7 @@ class _AzkarScreenState extends State<AzkarScreen> with SingleTickerProviderStat
     return Scaffold(
       appBar: AppBar(
         foregroundColor: Colors.white,
-        flexibleSpace: const WirdiBackground(imagePath: "assets/images/wirdi_azkar_bg.webp", opacity: 0.4),
+        flexibleSpace: _MosaicBg(col: 2, row: 1, opacity: 0.4),
         title: Text(l10n.azkarDuasTitle),
         centerTitle: true,
         bottom: TabBar(
@@ -567,24 +567,4 @@ class _MosaicCellPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant _MosaicCellPainter oldDelegate) =>
       oldDelegate.image != image || oldDelegate.col != col || oldDelegate.row != row;
-}
-
-
-class WirdiBackground extends StatelessWidget {
-  final String imagePath;
-  final double opacity;
-  const WirdiBackground({super.key, required this.imagePath, this.opacity = 1.0});
-
-  @override
-  Widget build(BuildContext context) {
-    return SizedBox.expand(
-      child: Opacity(
-        opacity: opacity,
-        child: Image.asset(
-          imagePath,
-          fit: BoxFit.cover,
-        ),
-      ),
-    );
-  }
 }

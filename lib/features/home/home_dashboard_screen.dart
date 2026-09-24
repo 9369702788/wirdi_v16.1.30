@@ -651,12 +651,12 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
               title: l10n.localeName == 'ar' ? 'آية اليوم' : 'Verse of the Day',
               subtitle: '${VerseOfTheDayService.forToday().arabicText}\n${VerseOfTheDayService.forToday().surahName} - ${VerseOfTheDayService.forToday().ayahNumber}',
               trailing: const Icon(Icons.chevron_left, color: AppColors.mutedText),
-              onTap: () {
+              onTap: () async {
                 final verse = VerseOfTheDayService.forToday();
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (_) => QuranScreen(initialSurahNumber: verse.surahNumber, initialAyah: verse.ayahNumber)),
-                );
+                final surahs = await QuranRepository.load();
+                final targetSurah = surahs.firstWhere((s) => s.number == verse.surahNumber, orElse: () => surahs.first);
+                if (!context.mounted) return;
+                Navigator.push(context, MaterialPageRoute(builder: (_) => SurahReaderScreen(surah: targetSurah, allSurahs: surahs, scrollToAyah: verse.ayahNumber)));
               },
             ),
             if (_hadithOfToday != null) ...[

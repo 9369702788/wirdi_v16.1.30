@@ -39,8 +39,8 @@ class QuranAudioService extends ChangeNotifier {
   QuranAudioService._();
   static final QuranAudioService instance = QuranAudioService._();
 
-  final AudioPlayer _playerA = AudioPlayer();
-  final AudioPlayer _playerB = AudioPlayer();
+  final AudioPlayer _playerA = AudioPlayer()..setPlayerMode(PlayerMode.lowLatency);
+  final AudioPlayer _playerB = AudioPlayer()..setPlayerMode(PlayerMode.lowLatency);
   late AudioPlayer _active;
   late AudioPlayer _standby;
   DateTime? _lastPosNotify;
@@ -420,7 +420,7 @@ class QuranAudioService extends ChangeNotifier {
 
     try {
       await _active.setPlaybackRate(playbackRate);
-      await _active.resume();
+      unawaited(_active.resume()); 
       notifyListeners();
       _armStallWatchdog(nextAyah, _playToken);
     } catch (e, st) {

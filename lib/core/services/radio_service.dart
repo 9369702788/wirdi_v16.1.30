@@ -107,11 +107,51 @@ class RadioService extends ChangeNotifier {
   /// station disappear. Fix: fetch from ALL four sources independently
   /// and MERGE every station from every source that responded into one
   /// combined list, deduplicated by stream URL.
-  Future<void> _doRefresh() async {
+    Future<void> _doRefresh() async {
     _loadingLive = true;
     notifyListeners();
-
     final combined = <String, RadioStation>{};
+    final succeededSources = <String>[];
+    Future<void> mergeFrom(Future<List<RadioStation>> Function() fetch, String label) async {
+      try {
+        final list = await fetch();
+        if (list.isEmpty) return;
+        succeededSources.add(label);
+        for (final s in list) { if (RadioStation.isSecureUrl(s.streamUrl)) combined[s.streamUrl] = s; }
+      } catch (e) { debugPrint('[Radio] $label error: $e'); }
+    }
+    await mergeFrom(_fetchMp3Quran, 'mp3quran.net');
+    await mergeFrom(_fetchRadioBrowser, 'Radio-Browser');
+    await mergeFrom(() => searchGlobal('Quran'), 'Quran Search');
+    await mergeFrom(() => searchGlobal('Islam'), 'Islamic Search');
+    if (combined.isNotEmpty) {
+      _liveStations = combined.values.toList();
+      _liveStations.sort((a, b) => (b.clickCount ?? 0).compareTo(a.clickCount ?? 0));
+      _activeSource = RadioSource.combined;
+      _sourceLabel = _liveStations.length.toString() + ' stations from ' + succeededSources.join(' + ');
+    }
+    _loadingLive = false;
+    notifyListeners();
+  }
+
+  Future<List<RadioStation>> searchGlobal(String query) async {
+    if (query.isEmpty) return [];
+    try {
+      final resp = await http.get(
+        Uri.parse('https://de1.api.radio-browser.info/json/stations/byname/${Uri.encodeComponent(query)}?limit=500&hidebroken=true'),
+        headers: {'User-Agent': 'WirdiApp/1.52'},
+      ).timeout(const Duration(seconds: 10));
+      if (resp.statusCode != 200) return [];
+      final List<dynamic> data = jsonDecode(resp.body);
+      final results = data.map((j) => RadioStation.fromRadioBrowser(j as Map<String, dynamic>)).toList();
+      return results.where((s) => RadioStation.isSecureUrl(s.streamUrl)).toList()
+        ..sort((a, b) => (b.clickCount ?? 0).compareTo(a.clickCount ?? 0));
+    } catch (e) {
+      debugPrint('[Radio] Global search error: $e');
+      return [];
+    }
+  }
+;
     final succeededSources = <String>[];
 
     Future<void> mergeFrom(Future<List<RadioStation>> Function() fetch, String label) async {
@@ -173,7 +213,7 @@ class RadioService extends ChangeNotifier {
   /// already uses across whole SOURCES -- multiplies the real, verified
   /// catalog size using only the existing trusted mechanism.
   // Generic tags ('islam', 'islamic') were dropped in v1.54: they returned unmoderated, non-Quran content.
-  static const _radioBrowserTags = ['quran', 'coran', 'tilawah', 'quran radio', 'islam', 'islamic', 'sunnah', 'hadith', 'nasheed', 'dawah', 'sunna', 'تلاوة', 'قرآن'];
+  static const _radioBrowserTags = ['quran', 'coran', 'tilawah', 'radio quran', 'islam', 'islamic', 'sunnah', 'hadith', 'nasheed', 'dawah', 'قرآن', 'تلاوة', 'إذاعة'];
 
   Future<List<RadioStation>> _fetchRadioBrowser() async {
     final merged = <String, RadioStation>{};
