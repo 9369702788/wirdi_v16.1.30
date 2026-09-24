@@ -1,0 +1,26 @@
+WIRDI v254 -- fix CI build failure: "Invalid constant value" (flutter analyze)
+================================================================================
+Root cause:
+  AppColors.goldAccent and AppColors.primaryEmerald were converted from
+  `static const` fields to `static Color get` getters back in the v133 calm
+  design system rollout (so the app can switch color themes at runtime).
+  A getter is NOT a compile-time constant, so any `const Icon(...)` that
+  reads one of these colors fails Dart's `invalid_constant` check. Two spots
+  still had the old `const Icon(...)` and were never converted, and they
+  didn't get caught until this run of `flutter analyze` (which is a hard
+  gate in the CI "Build debug APK" job).
+
+Fix: removed the `const` keyword from the two affected Icon(...) widgets.
+Behavior/appearance unchanged -- Icon is just built at runtime instead of
+compile time, which is required now that its color depends on the active
+theme anyway.
+
+Files:
+1) lib/features/settings/notification_diagnostics_screen.dart
+   - line ~143: `const Icon(Icons.notifications_active_outlined, color: AppColors.goldAccent)`
+     -> `Icon(Icons.notifications_active_outlined, color: AppColors.goldAccent)`
+2) lib/features/settings/settings_screen.dart
+   - line ~783: `const Icon(Icons.health_and_safety_outlined, color: AppColors.primaryEmerald)`
+     -> `Icon(Icons.health_and_safety_outlined, color: AppColors.primaryEmerald)`
+
+Apply on top of the latest repo state (v253 + this patch).

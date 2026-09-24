@@ -1,0 +1,63 @@
+name: wirdi
+description: "وردي — Islamic daily Quran, Azkar, Prayer & Tasbeeh companion."
+publish_to: 'none'
+version: 1.56.0+22
+
+environment:
+  sdk: '>=3.3.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_localizations:
+    sdk: flutter
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.4
+  google_sign_in: ^6.2.1
+  home_widget: ^0.6.0
+  cupertino_icons: ^1.0.8
+  http: ^1.2.2
+  shared_preferences: ^2.3.3
+  intl: ^0.20.2
+  geolocator: ^13.0.2
+  audioplayers: ^6.1.0
+  url_launcher: ^6.3.1
+  path_provider: ^2.1.5
+  share_plus: ^10.1.4
+  file_picker: ^8.1.2
+  flutter_local_notifications: ^19.4.2
+  timezone: ^0.10.1
+  audio_service: ^0.18.15
+  google_fonts: ^6.2.1
+  package_info_plus: ^9.0.1
+  wakelock_plus: ^1.2.4
+  flutter_compass_v2:
+    path: packages/flutter_compass_v2
+  camera: ^0.11.0+2
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^5.0.0
+
+flutter:
+  uses-material-design: true
+  generate: true
+  fonts:
+    - family: AmiriQuran
+      fonts:
+        - asset: assets/fonts/AmiriQuran.ttf
+    - family: QuranQPCHafs
+      fonts:
+        - asset: "assets/fonts/Quran/QPC Hafs font.ttf"
+    - family: QuranKFGQPCUthmanic
+      fonts:
+        - asset: "assets/fonts/Quran/KFGQPC Uthmanic Script HAFS Regular.otf"
+  assets:
+    - assets/fonts/
+    - assets/data/
+    - assets/google_fonts/
+    - assets/images/moon_phases/
+    - assets/images/wirdi_mosaic.webp
+    - assets/images/generated/

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "391561027779",
+    "project_id": "wirdi-cb813",
+    "storage_bucket": "wirdi-cb813.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:391561027779:android:a52f7194b0134a22b30276",
+        "android_client_info": {
+          "package_name": "com.wirdi.wirdi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "391561027779-jav7ce6cntp4sqa59187jjk645mj1e8r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.wirdi.wirdi",
+            "certificate_hash": "2a7b783020fd3b27d44d35aa372132b7f304b913"
+          }
+        },
+        {
+          "client_id": "391561027779-fq8t9eo47aubj7to6c84es8vbbdald8n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgURUM3-OW6NBUEK66dmbQ7p0aywOFb8w"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "391561027779-fq8t9eo47aubj7to6c84es8vbbdald8n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

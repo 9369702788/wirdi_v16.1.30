@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Wirdi: resources referenced ONLY BY NAME (from Dart or via getIdentifier), which the
+  R8 resource shrinker (ON by default for Flutter release builds) cannot see and would
+  delete from the release AAB:
+    adhan_sound       RawResourceAndroidNotificationSound('adhan_sound')
+    ic_stat_wirdi     AndroidInitializationSettings('ic_stat_wirdi') + audio_service icon
+    ic_launcher*      launcher icon
+    wirdi_widget_*    WirdiWidgetProvider looks up its layout / view ids by string
+  Copied to android/app/src/main/res/raw/keep.xml by the CI workflow.
+-->
+<resources xmlns:tools="http://schemas.android.com/tools"
+    tools:keep="@raw/adhan_sound,@drawable/ic_stat_wirdi,@mipmap/ic_launcher*,@layout/wirdi_widget_layout,@id/widget_*"
+    tools:shrinkMode="safe" />

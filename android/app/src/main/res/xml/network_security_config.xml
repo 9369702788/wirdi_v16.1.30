@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  ROOT CAUSE / SECURITY HARDENING: previously had
+  cleartextTrafficPermitted="true" for the base-config (i.e. ALL
+  domains), but an audit of every .dart file in the app found ZERO
+  hardcoded plaintext HTTP URLs anywhere in Wirdi's own code: every
+  real network call already goes over HTTPS (Firebase, audio CDN,
+  etc). There was no legitimate reason to allow plaintext HTTP
+  app-wide, so it is now disabled. If a future feature genuinely needs
+  a specific plaintext HTTP host, add a scoped domain-config entry
+  for that host only. Do not re-enable this at the base-config level.
+-->
+<network-security-config>
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>
