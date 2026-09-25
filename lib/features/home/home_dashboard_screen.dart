@@ -30,7 +30,7 @@ import '../../l10n/generated/app_localizations.dart';
 import '../azkar/azkar_screen.dart';
 import '../favorites/favorites_screen.dart';
 import '../insights/wirdi_insights_screen.dart';
-
+import '../khatma/khatma_tracker_screen.dart';
 import '../prayer/prayer_times_screen.dart';
 import '../qibla/qibla_screen.dart';
 import '../quran/quran_screen.dart';
@@ -313,16 +313,47 @@ class _HomeDashboardScreenState extends State<HomeDashboardScreen> {
         onRefresh: _loadAll,
         child: ListView(padding: EdgeInsets.fromLTRB(20, 20, 20, 20 + MediaQuery.of(context).padding.bottom),
           children: [
+            Text(_greeting(l10n), style: Theme.of(context).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.w700)),
+            const SizedBox(height: 4),
+            Text(
+              _streak > 0 ? l10n.homeStreakDays(_streak) : l10n.homeContinueToday,
+              style: const TextStyle(color: AppColors.mutedText),
+            ),
+            const SizedBox(height: 2),
+            Text(
+              l10n.homePrayersToday(_prayedCount, 5),
+              style: const TextStyle(color: AppColors.mutedText, fontSize: 12),
+            ),
+            if (_khatmaRatio > 0) ...[
+              const SizedBox(height: 2),
+              Semantics(
+                button: true,
+                label: l10n.homeKhatmaProgress((_khatmaRatio * 100).round()),
+                onTap: () => Navigator.push(context, MaterialPageRoute(builder: (_) => const KhatmaTrackerScreen())),
+                child: GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (_) => const KhatmaTrackerScreen()),
+                ),
+                child: Text(
+                  l10n.homeKhatmaProgress((_khatmaRatio * 100).round()),
+                  style: const TextStyle(
+                    color: AppColors.mutedText,
+                    fontSize: 12,
+                    decoration: TextDecoration.underline,
+                  ),
+                ),
+              ),
+              ),
+            ],
+            const SizedBox(height: 6),
             Builder(builder: (context) {
               final now = DateTime.now();
               final hijri = HijriDate.fromGregorian(now);
               final gregorian = DateFormat('EEEE d MMMM y', languageCode).format(now);
-              return _HeaderCard(
-                greeting: _greeting(l10n),
-                streak: _streak,
-                prayedCount: _prayedCount,
-                khatmaRatio: _khatmaRatio,
-                date: '$gregorian — ${hijri.toStringLocalized(languageCode)}',
+              return Text(
+                '$gregorian — ${hijri.toStringLocalized(languageCode)}',
+                style: const TextStyle(color: AppColors.mutedText, fontSize: 12),
               );
             }),
             const SizedBox(height: 16),
@@ -997,103 +1028,4 @@ class _MosaicCellPainter extends CustomPainter {
   @override
   bool shouldRepaint(covariant _MosaicCellPainter oldDelegate) =>
       oldDelegate.image != image || oldDelegate.col != col || oldDelegate.row != row;
-}
-
-class _HeaderCard extends StatelessWidget {
-  final String greeting;
-  final int streak;
-  final int prayedCount;
-  final double khatmaRatio;
-  final String date;
-
-  const _HeaderCard({
-    required this.greeting,
-    required this.streak,
-    required this.prayedCount,
-    required this.khatmaRatio,
-    required this.date,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context);
-    return Container(
-      margin: const EdgeInsets.only(bottom: 20),
-      height: 220,
-      child: ClipRRect(
-        borderRadius: BorderRadius.circular(28),
-        child: Stack(
-          children: [
-            Positioned.fill(
-              child: Image.asset(
-                'assets/images/ui/mosque_sunset.jpg',
-                fit: BoxFit.cover,
-              ),
-            ),
-            Positioned.fill(
-              child: DecoratedBox(
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [
-                      Colors.black.withValues(alpha: 0.6),
-                      Colors.transparent,
-                      Colors.black.withValues(alpha: 0.4),
-                    ],
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                  ),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(24),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Row(
-                    children: [
-                      Text(
-                        greeting,
-                        style: const TextStyle(color: Colors.white, fontSize: 28, fontWeight: FontWeight.bold),
-                      ),
-                      const SizedBox(width: 8),
-                      const Text('👋', style: TextStyle(fontSize: 24)),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Row(
-                    children: [
-                      const Icon(Icons.local_fire_department, color: Colors.orange, size: 18),
-                      const SizedBox(width: 4),
-                      Text(
-                        streak > 0 ? l10n.homeStreakDays(streak) : l10n.homeContinueToday,
-                        style: const TextStyle(color: Colors.white, fontSize: 15, fontWeight: FontWeight.w500),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 4),
-                  Text(
-                    l10n.homePrayersToday(prayedCount, 5),
-                    style: const TextStyle(color: Colors.white70, fontSize: 13),
-                  ),
-                  if (khatmaRatio > 0) ...[
-                    const SizedBox(height: 4),
-                    Text(
-                      l10n.homeKhatmaProgress((khatmaRatio * 100).round()),
-                      style: const TextStyle(color: Colors.white70, fontSize: 13, decoration: TextDecoration.underline),
-                    ),
-                  ],
-                  const Spacer(),
-                  Text(
-                    date,
-                    style: const TextStyle(color: Colors.white70, fontSize: 12),
-                  ),
-                ],
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
 }
