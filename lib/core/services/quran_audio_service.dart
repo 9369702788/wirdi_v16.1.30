@@ -42,7 +42,8 @@ class QuranAudioService extends ChangeNotifier {
   final AudioPlayer _playerA = AudioPlayer();
   final AudioPlayer _playerB = AudioPlayer();
   late AudioPlayer _active;
-  late AudioPlayer _standby;\n  DateTime? _lastPosNotify;
+  late AudioPlayer _standby;
+  DateTime? _lastPosNotify;
   bool _initialized = false;
 
   int? _surahNumber;

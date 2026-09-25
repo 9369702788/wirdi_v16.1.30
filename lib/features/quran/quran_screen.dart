@@ -1,4 +1,5 @@
-import 'package:wakelock_plus/wakelock_plus.dart';\nimport 'dart:async';
+import 'package:wakelock_plus/wakelock_plus.dart';
+import 'dart:async';
 
 import 'dart:ui' as ui;
 import 'package:flutter/material.dart';
@@ -48,13 +49,15 @@ class _QuranScreenState extends State<QuranScreen> with SingleTickerProviderStat
 
   @override
   void initState() {
-    super.initState();\n    WakelockPlus.enable();
+    super.initState();
+    WakelockPlus.enable();
     _tabController = TabController(length: 4, vsync: this);
     _future = QuranRepository.load();
   }
 
   @override
-  void dispose() {\n    WakelockPlus.disable();
+  void dispose() {
+    WakelockPlus.disable();
     _tabController.dispose();
     _surahSearchController.dispose();
     _ayahSearchController.dispose();
@@ -346,12 +349,14 @@ class _AyahSearchTabState extends State<_AyahSearchTab> {
 
   @override
   void initState() {
-    super.initState();\n    WakelockPlus.enable();
+    super.initState();
+    WakelockPlus.enable();
     _debouncedQuery = widget.controller.text.trim();
   }
 
   @override
-  void dispose() {\n    WakelockPlus.disable();
+  void dispose() {
+    WakelockPlus.disable();
     _debounce?.cancel();
     super.dispose();
   }
@@ -548,7 +553,8 @@ class _SurahReaderScreenState extends State<SurahReaderScreen> {
 
   @override
   void initState() {
-    super.initState();\n    WakelockPlus.enable();
+    super.initState();
+    WakelockPlus.enable();
 
     // _surahAyahOffset removed (dead code from a previous refactor)
 
@@ -649,7 +655,8 @@ class _SurahReaderScreenState extends State<SurahReaderScreen> {
   }
 
   @override
-  void dispose() {\n    WakelockPlus.disable();
+  void dispose() {
+    WakelockPlus.disable();
     quranAudio.removeListener(_onAudioChanged);
     _scrollController.removeListener(_scheduleVisibleAyahUpdate);
     _scrollController.dispose();
@@ -1382,7 +1389,8 @@ class _DownloadButtonState extends State<_DownloadButton> {
 
   @override
   void initState() {
-    super.initState();\n    WakelockPlus.enable();
+    super.initState();
+    WakelockPlus.enable();
     _checkStatus();
   }
 
@@ -1499,7 +1507,8 @@ class _MosaicBgState extends State<_MosaicBg> {
 
   @override
   void initState() {
-    super.initState();\n    WakelockPlus.enable();
+    super.initState();
+    WakelockPlus.enable();
     if (_cachedImage != null) {
       _image = _cachedImage;
     } else {
