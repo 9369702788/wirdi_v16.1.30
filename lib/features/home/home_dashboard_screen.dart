@@ -30,7 +30,7 @@ import '../../l10n/generated/app_localizations.dart';
 import '../azkar/azkar_screen.dart';
 import '../favorites/favorites_screen.dart';
 import '../insights/wirdi_insights_screen.dart';
-import '../khatma/khatma_tracker_screen.dart';
+
 import '../prayer/prayer_times_screen.dart';
 import '../qibla/qibla_screen.dart';
 import '../quran/quran_screen.dart';
