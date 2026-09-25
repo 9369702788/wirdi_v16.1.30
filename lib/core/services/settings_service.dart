@@ -132,10 +132,6 @@ class AppSettings extends ChangeNotifier {
     'dailyWird',
     'sleepAzkar',
     'sadaqah',
-    'tahajjud',
-    'weeklySummary',
-    'backupReminder',
-    'dailyQuote',
   ];
 
   final Map<String, DailyReminderSetting> _dailyReminders = {

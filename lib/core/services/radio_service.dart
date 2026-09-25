@@ -126,11 +126,11 @@ class RadioService extends ChangeNotifier {
   Future<List<RadioStation>> searchGlobal(String query) async {
     if (query.isEmpty) return [];
     try {
-      final resp = await http.get(Uri.parse('https://de1.api.radio-browser.info/json/stations/byname/${Uri.encodeComponent(query)}?limit=100&hidebroken=true'), headers: {'User-Agent': 'WirdiApp/1.52'}).timeout(const Duration(seconds: 10));
+      final url = 'https://de1.api.radio-browser.info/json/stations/search?name=${Uri.encodeComponent(query)}&limit=100&hidebroken=true&order=clickcount&reverse=true';
+      final resp = await http.get(Uri.parse(url), headers: {'User-Agent': 'WirdiApp/1.52'}).timeout(const Duration(seconds: 10));
       if (resp.statusCode != 200) return [];
       final List<dynamic> data = jsonDecode(resp.body);
-      final results = data.map((j) => RadioStation.fromRadioBrowser(j as Map<String, dynamic>)).toList();
-      return results.where((s) => RadioStation.isSecureUrl(s.streamUrl)).toList()..sort((a, b) => (b.clickCount ?? 0).compareTo(a.clickCount ?? 0));
+      return data.map((j) => RadioStation.fromRadioBrowser(j as Map<String, dynamic>)).where((s) => RadioStation.isSecureUrl(s.streamUrl)).toList();
     } catch (_) { return []; }
   }
 

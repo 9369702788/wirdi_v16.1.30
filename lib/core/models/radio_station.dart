@@ -8,8 +8,7 @@ class RadioStation {
   final String category;
   final bool isOfficial;
   final String? imageUrl;
-  final String? stationUuid;
-  final int? clickCount;
+  final String? stationUuid;\n  final int? clickCount;
 
   const RadioStation({
     required this.id, required this.nameAr, required this.nameEn,
@@ -104,8 +103,7 @@ class RadioStation {
       category: _guessCategory(name),
       isOfficial: false,
       imageUrl: (j['favicon'] as String?)?.trim().startsWith('https://') == true ? (j['favicon'] as String).trim() : null,
-      stationUuid: uuid,
-      clickCount: j['clickcount'] as int?,
+      stationUuid: uuid,\n      clickCount: j[\u0027clickcount\u0027] as int?,
     );
   }
 
